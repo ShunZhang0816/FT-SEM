@@ -23,7 +23,7 @@ library(FTSEM)
 One simple example to use the FT-SEM to perform GWAS can be found at /Example/Example_1. Another straightforward example demonstrating the use of FT-SEM to conduct GWAS separately on exposure and outcome datasets, followed by combining the summary results using IVW to estimate causal effects, can be found in ./Example/Example_2.
 
 ## Expected output
-Example_1 is executed on a system powered by an AMD 7500F CPU and an RX 7900 GRE GPU, running the Windows 11 operating system. Upon running Example_1, you will receive a data.frame that includes point estimates, confidence intervals, and p-values
+Example_1 and Example_2 are executed on a system powered by an AMD 7500F CPU and an RX 7900 GRE GPU, running the Windows 11 operating system. Upon running Example_1, you will receive a data.frame that includes point estimates, confidence intervals, and p-values. Similarly, running Example_2 will also generate a data.frame containing point estimates, confidence intervals, and p-values
 
 
 # Results reproduced
