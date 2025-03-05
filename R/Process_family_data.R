@@ -1,4 +1,3 @@
-#' @name FT_SEM_process_data function
 #' @title The main function for family trios structural equation model (FT-SEM)
 #' @description A robust and powerful GWAS method for family trios
 #' @param data A data.frame about genotype from plink1.9, containing FID,IID,PAT,MAT,SEX, phnotype and genotype (only 1 coloum) 
