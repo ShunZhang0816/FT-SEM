@@ -1,5 +1,5 @@
 library(data.table)
-data <- read.table("C:/Users/stars/Desktop/文献/文献汇报（笔记）/3.家系孟德尔随机化/1.论文/20250305论文额外资料/Example_1.txt")
+data <- read.table("./Example_1.txt")
 data <- as.data.table(data)
 
 for(i in 1:10){

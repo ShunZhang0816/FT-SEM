@@ -1,10 +1,10 @@
 library(data.table)
 
 
-data_1 <- read.table("C:/Users/stars/Desktop/文献/文献汇报（笔记）/3.家系孟德尔随机化/1.论文/20250305论文额外资料/Example_2_Exposure.txt")
+data_1 <- read.table("./Example_2_Exposure.txt")
 data_1 <- as.data.table(data_1)
 
-data_2 <- read.table("C:/Users/stars/Desktop/文献/文献汇报（笔记）/3.家系孟德尔随机化/1.论文/20250305论文额外资料/Example_2_Outcome.txt")
+data_2 <- read.table("./Example_2_Outcome.txt")
 data_2 <- as.data.table(data_2)
 
 # Exposure part
