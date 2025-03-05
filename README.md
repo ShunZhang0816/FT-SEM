@@ -24,4 +24,4 @@ One simple example to use the FT-SEM to perform GWAS can be found at /Example/Ex
 
 
 # Results reproduced
-All results for all methods used in the FT-SEM paper can be reproduced at ./Simulation and ./Empirical studies.
+All results for all methods used in the FT-SEM paper can be reproduced at ./Simulation and ./Empirical_Study. It is important to note that reproducing the empirical analysis requires obtaining publicly available data in advance. For details, please refer to the links provided in the article.
