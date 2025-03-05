@@ -1,0 +1,17 @@
+library(data.table)
+data <- read.table("C:/Users/stars/Desktop/文献/文献汇报（笔记）/3.家系孟德尔随机化/1.论文/20250305论文额外资料/Example_1.txt")
+data <- as.data.table(data)
+
+for(i in 1:10){
+  snp_name  <- names(data[,-(1:6)])
+  data_sub  <- data[,c(1:6,(6+i)),with = F]
+  trio_data <- process_family_data(data_sub, seed = 0)
+  
+  
+  if (i == 1){
+    result    <- FT_SEM(trio_data,snp_name[i])
+  } else {
+    result <- as.data.frame(rbind(result,FT_SEM(trio_data,snp_name[i])))
+  }
+  result
+}
