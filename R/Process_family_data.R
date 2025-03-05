@@ -2,11 +2,11 @@
 #' @description A robust and powerful GWAS method for family trios
 #' @param data A data.frame about genotype from plink1.9, containing FID,IID,PAT,MAT,SEX, phnotype and genotype (only 1 coloum) 
 #' @param seed random seed for select offspring from a family with multiple offsprings
+#' @export
 
-library(dplyr)
 
 process_family_data <- function(data, seed = 123) {
-  
+  library(dplyr)
   names(data)  <- c("FID","IID","PAT","MAT","SEX","y","SNP")
   
   # 筛选子代个体（PAT 和 MAT 不等于 0）
