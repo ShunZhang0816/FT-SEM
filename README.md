@@ -25,5 +25,6 @@ One simple example to use the FT-SEM to perform GWAS can be found at /Example/Ex
 ## Expected output
 Example_1 is executed on a system powered by an AMD 7500F CPU and an RX 7900 GRE GPU, running the Windows 11 operating system. Upon running Example_1, you will receive a data.frame that includes point estimates, confidence intervals, and p-values
 
+
 # Results reproduced
 All results for all methods used in the FT-SEM paper can be reproduced at ./Simulation and ./Empirical_Study. It is important to note that reproducing the empirical analysis requires obtaining publicly available data in advance. For details, please refer to the links provided in the article.
