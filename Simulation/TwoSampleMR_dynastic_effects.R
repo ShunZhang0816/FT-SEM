@@ -44,7 +44,7 @@ Simulate_IV <- function(Nrep = 100, N=10000, p=0.5,
                          if((gm_snp_1[i]==2) &&  (gf_snp_1[i]==1))  {if(rf[i] <= 0.5) {f_snp[i] = 2} else {f_snp[i] = 1}}
                          if((gm_snp_1[i]==2) &&  (gf_snp_1[i]==2))  {f_snp[i] = 2}
                        }
-                       maf_f <- ((2*(length(which(f_snp==0)))) + length(which(f_snp==1)))/(2*N) # 父亲基因的最小等位基因频率
+                       maf_f <- ((2*(length(which(f_snp==0)))) + length(which(f_snp==1)))/(2*N) 
                        
                        m_snp <- vector(length=N)
                        rm    <- runif(N)
@@ -63,7 +63,7 @@ Simulate_IV <- function(Nrep = 100, N=10000, p=0.5,
                          if((gm_snp_2[i]==2) &&  (gf_snp_2[i]==1))  {if(rm[i] <= 0.5) {m_snp[i] = 2} else {m_snp[i] = 1}}
                          if((gm_snp_2[i]==2) &&  (gf_snp_2[i]==2))  {m_snp[i] = 2}
                        }
-                       maf_m <- ((2*(length(which(m_snp==0)))) + length(which(m_snp==1)))/(2*N) # 母亲基因的最小等位基因频率
+                       maf_m <- ((2*(length(which(m_snp==0)))) + length(which(m_snp==1)))/(2*N) 
                        
                        o_snp <- vector(length=N)
                        ro    <- runif(N)
@@ -82,7 +82,7 @@ Simulate_IV <- function(Nrep = 100, N=10000, p=0.5,
                          if((m_snp[i]==2) &&  (f_snp[i]==1))  {if(ro[i] <= 0.5) {o_snp[i] = 2} else {o_snp[i] = 1}}
                          if((m_snp[i]==2) &&  (f_snp[i]==2))  {o_snp[i] = 2}
                        }
-                       maf_o <- ((2*(length(which(o_snp==0)))) + length(which(o_snp==1)))/(2*N) # 子代基因的最小等位基因频率
+                       maf_o <- ((2*(length(which(o_snp==0)))) + length(which(o_snp==1)))/(2*N) 
                        
                        U_f <- rnorm(N, mean=0, sd=1)
                        U_m <- rnorm(N, mean=0, sd=1)
@@ -302,14 +302,14 @@ Simulate_IV <- function(Nrep = 100, N=10000, p=0.5,
                                effect_lm - 1.96*effect_lm_std,
                                effect_lm + 1.96*effect_lm_std
                          ))
-                       names(base)      <- c("Method","效应估计值","标准误","P值","置信区间下界","置信区间上界")
-                       names(lm_parent) <- c("Method","效应估计值","标准误","P值","置信区间下界","置信区间上界")
-                       names(lm_result) <- c("Method","效应估计值","标准误","P值","置信区间下界","置信区间上界")
+                       names(base)      <- c("Method","Estimates","SE","P","CI_lower","CI_uppe")
+                       names(lm_parent) <- c("Method","Estimates","SE","P","CI_lower","CI_upper")
+                       names(lm_result) <- c("Method","Estimates","SE","P","CI_lower","CI_upper")
                        bind_result <- rbind(base,lm_parent,lm_result)
                        bind_result
                      }
   result             <- as.data.frame(result)
-  names(result)      <- c("Method","效应估计值","标准误","P值","置信区间下界","置信区间上界")
+  names(result)      <- c("Method","Estimates","SE","P","CI_lower","CI_upper")
   gc()
   stopCluster(cl)
   time2 <- Sys.time()
