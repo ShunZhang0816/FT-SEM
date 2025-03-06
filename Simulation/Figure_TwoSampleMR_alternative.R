@@ -7,9 +7,9 @@ library(showtext)
 library(cowplot)
 library(tidyverse)
 
-dynastic_alt   <- dynastic_alt[dynastic_alt$残差相关性 == 0.3,]
-population_alt <- population_alt[population_alt$残差相关性 == 0.3,]
-none_alt       <- none_alt[none_alt$残差相关性 == 0.3,]
+dynastic_alt   <- dynastic_alt[dynastic_alt$rou == 0.3,]
+population_alt <- population_alt[population_alt$rou == 0.3,]
+none_alt       <- none_alt[none_alt$rou == 0.3,]
 
 bias_plot <- function(data,title){
   bias <- ggplot(data, aes(x = 样本量, y = 直接效应Bias, group = 方法,
