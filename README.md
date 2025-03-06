@@ -10,7 +10,7 @@ library(devtools)
 install_github("ShunZhang0816/FT-SEM")
 ```
 # Usage
-There are two main functions in FTSEM package, one is FT_SEM for performing analysis based on family trios data with one offspring, another one is process_family_data to transform the data from PLINK1.9 to what the FT_SEM function needs. You can find the instructions by '?FT_SEM' and '?process_family_data'.
+There are two main functions in FTSEM package, one is FT_SEM for performing analysis based on family trios data with one offspring, another one is process_family_data to transform the data from PLINK 1.9 to what the FT_SEM function needs. You can find the instructions by '?FT_SEM' and '?process_family_data'.
 ```
 library(FTSEM)
 
