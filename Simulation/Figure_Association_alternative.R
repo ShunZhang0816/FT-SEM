@@ -12,9 +12,9 @@ population_alt <- population_alt[population_alt$残差相关性 == 0.3,]
 none_alt       <- none_alt[none_alt$残差相关性 == 0.3,]
 
 bias_plot <- function(data,title){
-  bias <- ggplot(data, aes(x = 样本量, y = 直接效应Bias, group = 方法,
-                           shape = factor(方法, levels = c("FT-SEM","lm_parent","lm")),
-                           linetype = factor(方法, levels = c("FT-SEM","lm_parent","lm")))) +
+  bias <- ggplot(data, aes(x = Sample size, y = Offspring effect Bias, group = Method,
+                           shape = factor(Method, levels = c("FT-SEM","lm_parent","lm")),
+                           linetype = factor(Method, levels = c("FT-SEM","lm_parent","lm")))) +
     geom_point(size = 2) +  # 添加点
     geom_line(linewidth = 0.8) +
     labs(x = "Sample size", y = "Bias",shape = "Method",linetype = "Method") +
@@ -40,9 +40,9 @@ bias_alt_population <- bias_plot(population_alt, "Residual population stratifica
 bias_alt_none       <- bias_plot(none_alt, "No bias")
 
 RMSE_plot <- function(data,title){
-  RMSE <- ggplot(data, aes(x = 样本量, y = 直接效应RMSE, group = 方法,
-                           shape = factor(方法, levels = c("FT-SEM","lm_parent","lm")),
-                           linetype = factor(方法, levels = c("FT-SEM","lm_parent","lm")))) +
+  RMSE <- ggplot(data, aes(x = Sample size, y = Offspring effect RMSE, group = Method,
+                           shape = factor(Method, levels = c("FT-SEM","lm_parent","lm")),
+                           linetype = factor(Method, levels = c("FT-SEM","lm_parent","lm")))) +
     geom_point(size = 2) +  # 添加点
     geom_line(linewidth = 0.8) +
     labs(x = "Sample size", y = "RMSE",shape = "Method",linetype = "Method") +
@@ -68,9 +68,9 @@ RMSE_alt_population <- RMSE_plot(population_alt, "Residual population stratifica
 RMSE_alt_none       <- RMSE_plot(none_alt, "No bias")
 
 Coverage_plot <- function(data,title){
-  Coverage <- ggplot(data, aes(x = 样本量, y = 直接效应Coverage, group = 方法,
-                               shape = factor(方法, levels = c("FT-SEM","lm_parent","lm")),
-                               linetype = factor(方法, levels = c("FT-SEM","lm_parent","lm")))) +
+  Coverage <- ggplot(data, aes(x = Sample size, y = Offspring effect Coverage, group = Method,
+                               shape = factor(Method, levels = c("FT-SEM","lm_parent","lm")),
+                               linetype = factor(Method, levels = c("FT-SEM","lm_parent","lm")))) +
     geom_point(size = 2) +  # 添加点
     geom_line(linewidth = 0.8) +
     labs(x = "Sample size", y = "CP of CI",shape = "Method",linetype = "Method") +
@@ -96,9 +96,9 @@ Coverage_alt_population <- Coverage_plot(population_alt, "Residual population st
 Coverage_alt_none       <- Coverage_plot(none_alt, "No bias")
 
 CI_plot <- function(data,title){
-  CI <- ggplot(data, aes(x = 样本量, y = 直接效应CILength, group = 方法,
-                         shape = factor(方法, levels = c("FT-SEM","lm_parent","lm")),
-                         linetype = factor(方法, levels = c("FT-SEM","lm_parent","lm")))) +
+  CI <- ggplot(data, aes(x = Sample size, y = Offspring effect CILength, group = Method,
+                         shape = factor(Method, levels = c("FT-SEM","lm_parent","lm")),
+                         linetype = factor(Method, levels = c("FT-SEM","lm_parent","lm")))) +
     geom_point(size = 2) +  # 添加点
     geom_line(linewidth = 0.8) +
     labs(x = "Sample size", y = "Width of CI",shape = "Method",linetype = "Method") +
@@ -124,9 +124,9 @@ CI_alt_population <- CI_plot(population_alt, "Residual population stratification
 CI_alt_none       <- CI_plot(none_alt, "No bias")
 
 Power_plot <- function(data,title){
-  Power <- ggplot(data, aes(x = 样本量, y = 直接效应Power, group = 方法,
-                            shape = factor(方法, levels = c("FT-SEM","lm_parent","lm")),
-                            linetype = factor(方法, levels = c("FT-SEM","lm_parent","lm")))) +
+  Power <- ggplot(data, aes(x = Sample size, y = Offspring effect Power, group = Method,
+                            shape = factor(Method, levels = c("FT-SEM","lm_parent","lm")),
+                            linetype = factor(Method, levels = c("FT-SEM","lm_parent","lm")))) +
     geom_point(size = 2) +  # 添加点
     geom_line(linewidth = 0.8) +
     labs(x = "Sample size", y = "Power",shape = "Method",linetype = "Method") +
