@@ -3,7 +3,7 @@ The simulation and emprical study code of the paper “A robust and powerful GWA
 
 
 # Installation
-It is easy to install the development version of FTSEM package using the 'devtools' package. The typical install time on a "normal" desktop computer is less than one minute.This R package is currently running smoothly on version 4.4.0.
+It is easy to install the development version of FTSEM package using the 'devtools' package. The typical install time on a "normal" desktop computer is less than one minute. This R package is currently running smoothly on version 4.4.0.
 ```
 # install.packages("devtools")
 library(devtools)
