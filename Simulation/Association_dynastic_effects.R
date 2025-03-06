@@ -245,17 +245,17 @@ Simulate_IV <- function(Nrep = 100, N=1000, p=0.1, beta_o_e=0, beta_f_e=0.05, be
                            (lm_m_summary$coefficients[2,1]+1.96*lm_m_summary$coefficients[2,2])
                          )
                        )
-                       names(base) <- c("方法名",
+                       names(base) <- c("Method",
                                         "Beta_o_e", "SE_o_e", "P_wald_o_e","CI_lower_o_e","CI_upper_o_e",
                                         "Beta_f_e", "SE_f_e", "P_wald_f_e","CI_lower_f_e","CI_upper_f_e",
                                         "Beta_m_e", "SE_m_e", "P_wald_m_e","CI_lower_m_e","CI_upper_m_e"
                        )
-                       names(lm_parent_result) <- c("方法名",
+                       names(lm_parent_result) <- c("Method",
                                                     "Beta_o_e", "SE_o_e", "P_wald_o_e","CI_lower_o_e","CI_upper_o_e",
                                                     "Beta_f_e", "SE_f_e", "P_wald_f_e","CI_lower_f_e","CI_upper_f_e",
                                                     "Beta_m_e", "SE_m_e", "P_wald_m_e","CI_lower_m_e","CI_upper_m_e"
                        )
-                       names(lm_result) <- c("方法名",
+                       names(lm_result) <- c("Method",
                                              "Beta_o_e", "SE_o_e", "P_wald_o_e","CI_lower_o_e","CI_upper_o_e",
                                              "Beta_f_e", "SE_f_e", "P_wald_f_e","CI_lower_f_e","CI_upper_f_e",
                                              "Beta_m_e", "SE_m_e", "P_wald_m_e","CI_lower_m_e","CI_upper_m_e"
@@ -264,7 +264,7 @@ Simulate_IV <- function(Nrep = 100, N=1000, p=0.1, beta_o_e=0, beta_f_e=0.05, be
                        bind_result
                      }
   result        <- as.data.frame(result)
-  names(result) <- c("方法名",
+  names(result) <- c("Method",
                      "Beta_o_e", "SE_o_e", "P_wald_o_e","CI_lower_o_e","CI_upper_o_e",
                      "Beta_f_e", "SE_f_e", "P_wald_f_e","CI_lower_f_e","CI_upper_f_e",
                      "Beta_m_e", "SE_m_e", "P_wald_m_e","CI_lower_m_e","CI_upper_m_e"
