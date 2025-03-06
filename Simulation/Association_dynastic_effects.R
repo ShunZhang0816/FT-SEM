@@ -422,19 +422,19 @@ for (i in 1:length(rou)){
                                ))
   }
 }
-names(base_result)   <- c("模拟次数","方法","次等位基因频率","残差相关性","样本量",
-                          "直接效应Bias","直接效应RMSE","直接效应Coverage","直接效应CILength","直接效应第一类错误率",
-                          "父亲效应Bias","父亲效应RMSE","父亲效应Coverage","父亲效应CILength","父亲效应Power",
-                          "母亲效应Bias","母亲效应RMSE","母亲效应Coverage","母亲效应CILength","母亲效应Power"
-                          )
-names(lm_parent_result)   <- c("模拟次数","方法","次等位基因频率","残差相关性","样本量",
-                          "直接效应Bias","直接效应RMSE","直接效应Coverage","直接效应CILength","直接效应第一类错误率",
-                          "父亲效应Bias","父亲效应RMSE","父亲效应Coverage","父亲效应CILength","父亲效应Power",
-                          "母亲效应Bias","母亲效应RMSE","母亲效应Coverage","母亲效应CILength","母亲效应Power"
-                          )
-names(lm_result)   <- c("模拟次数","方法","次等位基因频率","残差相关性","样本量",
-                          "直接效应Bias","直接效应RMSE","直接效应Coverage","直接效应CILength","直接效应第一类错误率",
-                          "父亲效应Bias","父亲效应RMSE","父亲效应Coverage","父亲效应CILength","父亲效应Power",
-                          "母亲效应Bias","母亲效应RMSE","母亲效应Coverage","母亲效应CILength","母亲效应Power"
-                          )
+names(base_result)   <- c("Simulation","Method","MAF_1","MAF_2","rou","Sample_Size",
+                          "Offspring effect Bias","Offspring effect RMSE"," Offspring effect Coverage","Offspring effect CILength","Offspring effect Type error I rates",
+                          "Paternal effect Bias","Paternal effect RMSE","Paternal effect Coverage","Paternal effect CILength","Paternal effect Type error I rates",
+                          "Maternal effect Bias","Maternal effect RMSE","Maternal effect Coverage","Maternal effect CILength","Maternal effect Type error I rates"
+)
+names(lm_parent_result)   <- c("Simulation","Method","MAF_1","MAF_2","rou","Sample_Size",
+                               "Offspring Bias","Offspring effect RMSE","Offspring effect Coverage","Offspring effect CILength","Offspring effect Type error I rates",
+                               "Paternal effectBias","Paternal effectRMSE","Paternal effectCoverage","Paternal effectCILength","Paternal effect Type error I rates",
+                               "Maternal effect Bias","Maternal effect RMSE","Maternal effect Coverage","Maternal effect CILength","Maternal effect Type error I rates"
+)
+names(lm_result)   <- c("Simulation","Method","MAF_1","MAF_2","rou","Sample_Size",
+                        "Offspring Bias","Offspring effect RMSE","Offspring effect Coverage","Offspring effect CILength","Offspring effect Type error I rates",
+                        "Paternal effect Bias","Paternal effect RMSE","Paternal effect Coverage","Paternal effect CILength","Paternal effect Type error I rates",
+                        "Maternal effect Bias","Maternal effect RMSE","Maternal effect Coverage","Maternal effect CILength","Maternal effect Type error I rates"
+)
 result               <- rbind(base_result,lm_parent_result,lm_result)
