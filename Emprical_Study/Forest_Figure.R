@@ -2,36 +2,36 @@
 library(tidyverse)
 library(forestplot)
 library(cowplot)
-# 创建自定义森林图函数
+
 custom_forestplot <- function(method_names, sample_size, point_estimates, variances, p_values, exposure, outcome) {
-  # 检查输入向量长度是否一致
+ 
   if (!(length(method_names) == length(sample_size) &&
         length(sample_size) == length(point_estimates) &&
         length(point_estimates) == length(variances) &&
         length(variances) == length(p_values))) {
-    stop("所有输入向量的长度必须相同")
+    stop("All input vectors must be of the same length")
   }
   
-  # 使用标准正态分布计算置信区间
-  z_value <- qnorm(0.975)  # 95% 置信水平对应的 Z 值
+  
+  z_value <- qnorm(0.975)  
   lower_ci <- point_estimates - z_value * variances
   upper_ci <- point_estimates + z_value * variances
   
-  # 准备用于绘图的文本
+  
   coef_ci <- c("Mean difference (95% CI)", paste(format(round(point_estimates, 2), nsmall = 2), " (",
                                                  format(round(lower_ci, 2), nsmall = 2), " ~ ",
                                                  format(round(upper_ci, 2), nsmall = 2), ")", sep = ""))
   N <- c("N", sample_size)
   pval <- c("P-value", formatC(p_values, format = "f", digits = 3))
   
-  # 创建结果表
+  
   all_results <- tibble(
     mean = c(NA, point_estimates),
     lower = c(NA, lower_ci),
     upper = c(NA, upper_ci)
   )
   
-  # 合并文本
+ 
   method <- c(paste("Effect of", exposure[1], "on", outcome[1]), method_names)
   tabletext <- cbind(
     method,
@@ -39,20 +39,20 @@ custom_forestplot <- function(method_names, sample_size, point_estimates, varian
     coef_ci,
     pval
   )
-  # 加粗
+  
   A <- forestplot(
     tabletext,
     all_results,
-    graph.pos = 4, # 图形位置
+    graph.pos = 4, 
     new_page = TRUE,
     hrzl_lines = gpar(col="#000000"),
     is.summary=c(TRUE,rep(FALSE,7)),
     xlog = FALSE,
     col = fpColors(box = "black", line = "red"),
-    boxsize = 0.1, # 设置箱子大小
+    boxsize = 0.1, 
     xlab = "Mean difference (95% CI)",
     txt_gp = fpTxtGp(
-      label = gpar(fontfamily = "sans", fontsize = 6, cex = 1.2),  # 默认字体
+      label = gpar(fontfamily = "sans", fontsize = 6, cex = 1.2),  
       ticks = gpar(fontfamily = "sans", fontsize = 6),
       xlab = gpar(fontfamily = "sans", fontsize = 6),
     ),
@@ -65,7 +65,7 @@ custom_forestplot <- function(method_names, sample_size, point_estimates, varian
 
 
 
-# 森林图组合函数
+
 custom_combined_forestplot <- function(A, B, C, group_name) {
   if (dev.cur() > 1) dev.off()
   
@@ -207,14 +207,14 @@ FSIQ <- custom_forestplot(IVW_result_6$GWAS_method,
 library(grid)
 library(gridExtra)
 
-# 捕获每个森林图的 grob 对象
+
 NIC_grob <- grid.grabExpr(print(NIC))
 CON_grob <- grid.grabExpr(print(CON))
 DEP_grob <- grid.grabExpr(print(DEP))
 DRG_grob <- grid.grabExpr(print(DRG))
 BD_grob  <- grid.grabExpr(print(BD))
 FSIQ_grob <- grid.grabExpr(print(FSIQ))
-# 使用 cowplot 组合图形并调整标签的位置
+
 combined_plot <- plot_grid(NIC_grob, CON_grob, DEP_grob, DRG_grob, BD_grob, 
                            ncol = 1, labels = c("a", "b", "c", "d", "e"),
                            label_x = 0.01,
@@ -222,8 +222,8 @@ combined_plot <- plot_grid(NIC_grob, CON_grob, DEP_grob, DRG_grob, BD_grob,
                            hjust = 0.5,
                            label_size = 14)  # label_x 控制标签的水平位置，0 为最左，1 为最右
 
-ggsave(filename = "./森林图/两样本MR结果.pdf",height = 180, width = 200, units = "mm")
-ggsave(filename = "./森林图/两样本MR结果.png",height = 180, width = 200, units = "mm", dpi = 300)
+ggsave(filename = "./TwoSampleMR.pdf",height = 180, width = 200, units = "mm")
+ggsave(filename = "./TwoSampleMR.png",height = 180, width = 200, units = "mm", dpi = 300)
 
 
 
@@ -231,56 +231,56 @@ ggsave(filename = "./森林图/两样本MR结果.png",height = 180, width = 200,
 library(tidyverse)
 library(forestplot)
 library(cowplot)
-# 创建自定义森林图函数
+
 custom_forestplot <- function(method_names, sample_size, point_estimates, variances, p_values, exposure, outcome) {
-  # 检查输入向量长度是否一致
+  
   if (!(length(method_names) == length(sample_size) &&
         length(sample_size) == length(point_estimates) &&
         length(point_estimates) == length(variances) &&
         length(variances) == length(p_values))) {
-    stop("所有输入向量的长度必须相同")
+    stop("All input vectors must be of the same length")
   }
   
-  # 使用标准正态分布计算置信区间
-  z_value <- qnorm(0.975)  # 95% 置信水平对应的 Z 值
+  
+  z_value <- qnorm(0.975)  
   lower_ci <- point_estimates - z_value * variances
   upper_ci <- point_estimates + z_value * variances
   
-  # 准备用于绘图的文本
+ 
   coef_ci <- c("Mean difference (95% CI)", paste(format(round(point_estimates, 2), nsmall = 2), " (",
                                                  format(round(lower_ci, 2), nsmall = 2), " ~ ",
                                                  format(round(upper_ci, 2), nsmall = 2), ")", sep = ""))
   N <- c("N", sample_size)
   pval <- c("P-value", formatC(p_values, format = "f", digits = 3))
   
-  # 创建结果表
+  
   all_results <- tibble(
     mean = c(NA, point_estimates),
     lower = c(NA, lower_ci),
     upper = c(NA, upper_ci)
   )
   
-  # 合并文本
+ 
   method <- c(paste("Effect of", exposure[1], "on", outcome[1]), method_names)
   tabletext <- cbind(
     method,
     coef_ci,
     pval
   )
-  # 加粗
+  
   A <- forestplot(
     tabletext,
     all_results,
-    graph.pos = 3, # 图形位置
+    graph.pos = 3, 
     new_page = TRUE,
     hrzl_lines = gpar(col="#000000"),
     is.summary=c(TRUE,rep(FALSE,7)),
     xlog = FALSE,
     col = fpColors(box = "black", line = "red"),
-    boxsize = 0.1, # 设置箱子大小
+    boxsize = 0.1, 
     xlab = "Mean difference (95% CI)",
     txt_gp = fpTxtGp(
-      label = gpar(fontfamily = "sans", fontsize = 6, cex = 1.2),  # 默认字体
+      label = gpar(fontfamily = "sans", fontsize = 6, cex = 1.2),  
       ticks = gpar(fontfamily = "sans", fontsize = 6),
       xlab = gpar(fontfamily = "sans", fontsize = 6),
     ),
@@ -367,25 +367,25 @@ FSIQ <- custom_forestplot(result_6$method,
 
 
 
-# 整合图尝试
+
 library(cowplot)
-# 捕获每个森林图的 grob 对象
+
 NIC_grob <- grid.grabExpr(print(NIC))
 CON_grob <- grid.grabExpr(print(CON))
 DEP_grob <- grid.grabExpr(print(DEP))
 DRG_grob <- grid.grabExpr(print(DRG))
 BD_grob  <- grid.grabExpr(print(BD))
 FSIQ_grob <- grid.grabExpr(print(FSIQ))
-# 使用 cowplot 组合图形并调整标签的位置
+
 combined_plot <- plot_grid(NIC_grob, CON_grob, DEP_grob, DRG_grob, BD_grob, 
                            ncol = 1, labels = c("a", "b", "c", "d", "e"),
                            label_x = 0.01,
                            label_y = 1.05,
                            hjust = 0.5,
-                           label_size = 14)  # label_x 控制标签的水平位置，0 为最左，1 为最右
+                           label_size = 14)  
 
-ggsave(filename = "./森林图/FT-SEM.pdf",height = 180, width = 200, units = "mm")
-ggsave(filename = "./森林图/FT-SEM.png",height = 180, width = 200, units = "mm", dpi = 300)
+ggsave(filename = "./FT-SEM.pdf",height = 180, width = 200, units = "mm")
+ggsave(filename = "./FT-SEM.png",height = 180, width = 200, units = "mm", dpi = 300)
 
 
 
@@ -458,16 +458,16 @@ FSIQ <- custom_forestplot(result_6$method,
 
 
 
-# 整合图尝试
+
 library(cowplot)
-# 捕获每个森林图的 grob 对象
+
 NIC_grob <- grid.grabExpr(print(NIC))
 CON_grob <- grid.grabExpr(print(CON))
 DEP_grob <- grid.grabExpr(print(DEP))
 DRG_grob <- grid.grabExpr(print(DRG))
 BD_grob  <- grid.grabExpr(print(BD))
 FSIQ_grob <- grid.grabExpr(print(FSIQ))
-# 使用 cowplot 组合图形并调整标签的位置
+
 combined_plot <- plot_grid(NIC_grob, CON_grob, DEP_grob, DRG_grob, BD_grob, 
                            ncol = 1, labels = c("a", "b", "c", "d", "e"),
                            label_x = 0.01,
@@ -475,8 +475,8 @@ combined_plot <- plot_grid(NIC_grob, CON_grob, DEP_grob, DRG_grob, BD_grob,
                            hjust = 0.5,
                            label_size = 14)  # label_x 控制标签的水平位置，0 为最左，1 为最右
 
-ggsave(filename = "./森林图/lm_parent.pdf",height = 180, width = 200, units = "mm")
-ggsave(filename = "./森林图/lm_parent.png",height = 180, width = 200, units = "mm", dpi = 300)
+ggsave(filename = "./lm_parent.pdf",height = 180, width = 200, units = "mm")
+ggsave(filename = "./lm_parent.png",height = 180, width = 200, units = "mm", dpi = 300)
 
 
 
@@ -549,22 +549,22 @@ FSIQ <- custom_forestplot(result_6$method,
 
 
 
-# 整合图尝试
+
 library(cowplot)
-# 捕获每个森林图的 grob 对象
+
 NIC_grob <- grid.grabExpr(print(NIC))
 CON_grob <- grid.grabExpr(print(CON))
 DEP_grob <- grid.grabExpr(print(DEP))
 DRG_grob <- grid.grabExpr(print(DRG))
 BD_grob  <- grid.grabExpr(print(BD))
 FSIQ_grob <- grid.grabExpr(print(FSIQ))
-# 使用 cowplot 组合图形并调整标签的位置
+
 combined_plot <- plot_grid(NIC_grob, CON_grob, DEP_grob, DRG_grob, BD_grob, 
                            ncol = 1, labels = c("a", "b", "c", "d", "e"),
                            label_x = 0.01,
                            label_y = 1.05,
                            hjust = 0.5,
-                           label_size = 14)  # label_x 控制标签的水平位置，0 为最左，1 为最右
+                           label_size = 14)  
 
-ggsave(filename = "./森林图/lm.pdf",height = 180, width = 200, units = "mm")
-ggsave(filename = "./森林图/lm.png",height = 180, width = 200, units = "mm", dpi = 300)
+ggsave(filename = "./lm.pdf",height = 180, width = 200, units = "mm")
+ggsave(filename = "./lm.png",height = 180, width = 200, units = "mm", dpi = 300)
