@@ -7,30 +7,30 @@ library(showtext)
 library(cowplot)
 library(tidyverse)
 
-dynastic_alt   <- dynastic_alt[dynastic_alt$残差相关性 == 0.3,]
-population_alt <- population_alt[population_alt$残差相关性 == 0.3,]
-none_alt       <- none_alt[none_alt$残差相关性 == 0.3,]
+dynastic_alt   <- dynastic_alt[dynastic_alt$rou == 0.3,]
+population_alt <- population_alt[population_alt$rou == 0.3,]
+none_alt       <- none_alt[none_alt$rou == 0.3,]
 
 bias_plot <- function(data,title){
   bias <- ggplot(data, aes(x = Sample size, y = Offspring effect Bias, group = Method,
                            shape = factor(Method, levels = c("FT-SEM","lm_parent","lm")),
                            linetype = factor(Method, levels = c("FT-SEM","lm_parent","lm")))) +
-    geom_point(size = 2) +  # 添加点
+    geom_point(size = 2) +  
     geom_line(linewidth = 0.8) +
     labs(x = "Sample size", y = "Bias",shape = "Method",linetype = "Method") +
     # theme_minimal() +
     theme(
-      panel.grid = element_blank(), # 去除背景的方框线
-      panel.border = element_rect(color = "black", fill = NA, linewidth = 0.8),  # 在面板周围添加黑色实线边框
-      panel.background = element_rect(fill = "white", color = NA),  # 设置面板背景为白色
+      panel.grid = element_blank(), 
+      panel.border = element_rect(color = "black", fill = NA, linewidth = 0.8),  
+      panel.background = element_rect(fill = "white", color = NA),  
       axis.ticks = element_line(color = "black"),
-      axis.title = element_text(family = "sans",size = 9), # 加粗并增大轴标题字体
-      axis.text = element_text(family = "sans",size = 9),  # 增大坐标轴刻度字体
-      strip.text = element_text(family = "sans",size = 9), # 增大 facet 标题的字体大小并加粗
-      aspect.ratio = 1,  # 设置图形为正方形
-      plot.title = element_text(hjust = 0.5, family = "sans", face = "bold", size = 9),  # 设置标题居中，字体样式和大小
+      axis.title = element_text(family = "sans",size = 9), 
+      axis.text = element_text(family = "sans",size = 9),  
+      strip.text = element_text(family = "sans",size = 9), 
+      aspect.ratio = 1,  
+      plot.title = element_text(hjust = 0.5, family = "sans", face = "bold", size = 9),  
     ) +
-    scale_x_continuous(breaks = c(1000, 2000, 3000)) + # 设置横坐标刻度为1000、2000和3000
+    scale_x_continuous(breaks = c(1000, 2000, 3000)) + 
     scale_y_continuous(limits = c(-0.005,0.15)) +
     ggtitle(title)
   bias
@@ -43,22 +43,22 @@ RMSE_plot <- function(data,title){
   RMSE <- ggplot(data, aes(x = Sample size, y = Offspring effect RMSE, group = Method,
                            shape = factor(Method, levels = c("FT-SEM","lm_parent","lm")),
                            linetype = factor(Method, levels = c("FT-SEM","lm_parent","lm")))) +
-    geom_point(size = 2) +  # 添加点
+    geom_point(size = 2) +  
     geom_line(linewidth = 0.8) +
     labs(x = "Sample size", y = "RMSE",shape = "Method",linetype = "Method") +
     # theme_minimal() +
     theme(
-      panel.grid = element_blank(), # 去除背景的方框线
-      panel.border = element_rect(color = "black", fill = NA, linewidth = 0.8),  # 在面板周围添加黑色实线边框
-      panel.background = element_rect(fill = "white", color = NA),  # 设置面板背景为白色
+      panel.grid = element_blank(), 
+      panel.border = element_rect(color = "black", fill = NA, linewidth = 0.8),  
+      panel.background = element_rect(fill = "white", color = NA),  
       axis.ticks = element_line(color = "black"),
-      axis.title = element_text(family = "sans",size = 9), # 加粗并增大轴标题字体
-      axis.text = element_text(family = "sans",size = 9),  # 增大坐标轴刻度字体
-      strip.text = element_text(family = "sans",size = 9), # 增大 facet 标题的字体大小并加粗
-      aspect.ratio = 1,  # 设置图形为正方形
-      plot.title = element_text(hjust = 0.5, family = "sans", face = "bold", size = 9),  # 设置标题居中，字体样式和大小
+      axis.title = element_text(family = "sans",size = 9), 
+      axis.text = element_text(family = "sans",size = 9), 
+      strip.text = element_text(family = "sans",size = 9), 
+      aspect.ratio = 1,  
+      plot.title = element_text(hjust = 0.5, family = "sans", face = "bold", size = 9),  
     ) +
-    scale_x_continuous(breaks = c(1000, 2000, 3000)) + # 设置横坐标刻度为1000、2000和3000
+    scale_x_continuous(breaks = c(1000, 2000, 3000)) + 
     scale_y_continuous(limits = c(-0.005,0.15)) +
     ggtitle(title)
   RMSE
@@ -71,22 +71,22 @@ Coverage_plot <- function(data,title){
   Coverage <- ggplot(data, aes(x = Sample size, y = Offspring effect Coverage, group = Method,
                                shape = factor(Method, levels = c("FT-SEM","lm_parent","lm")),
                                linetype = factor(Method, levels = c("FT-SEM","lm_parent","lm")))) +
-    geom_point(size = 2) +  # 添加点
+    geom_point(size = 2) +  
     geom_line(linewidth = 0.8) +
     labs(x = "Sample size", y = "CP of CI",shape = "Method",linetype = "Method") +
     # theme_minimal() +
     theme(
-      panel.grid = element_blank(), # 去除背景的方框线
-      panel.border = element_rect(color = "black", fill = NA, linewidth = 0.8),  # 在面板周围添加黑色实线边框
-      panel.background = element_rect(fill = "white", color = NA),  # 设置面板背景为白色
+      panel.grid = element_blank(), 
+      panel.border = element_rect(color = "black", fill = NA, linewidth = 0.8), 
+      panel.background = element_rect(fill = "white", color = NA),  
       axis.ticks = element_line(color = "black"),
-      axis.title = element_text(family = "sans",size = 9), # 加粗并增大轴标题字体
-      axis.text = element_text(family = "sans",size = 9),  # 增大坐标轴刻度字体
-      strip.text = element_text(family = "sans",size = 9), # 增大 facet 标题的字体大小并加粗
-      aspect.ratio = 1,  # 设置图形为正方形
-      plot.title = element_text(hjust = 0.5, family = "sans", face = "bold", size = 9),  # 设置标题居中，字体样式和大小
+      axis.title = element_text(family = "sans",size = 9), 
+      axis.text = element_text(family = "sans",size = 9),  
+      strip.text = element_text(family = "sans",size = 9), 
+      aspect.ratio = 1,  
+      plot.title = element_text(hjust = 0.5, family = "sans", face = "bold", size = 9),  
     ) +
-    scale_x_continuous(breaks = c(1000, 2000, 3000)) + # 设置横坐标刻度为1000、2000和3000
+    scale_x_continuous(breaks = c(1000, 2000, 3000)) + 
     scale_y_continuous(limits = c(-0.005,1)) +
     ggtitle(title)
   Coverage
@@ -99,22 +99,22 @@ CI_plot <- function(data,title){
   CI <- ggplot(data, aes(x = Sample size, y = Offspring effect CILength, group = Method,
                          shape = factor(Method, levels = c("FT-SEM","lm_parent","lm")),
                          linetype = factor(Method, levels = c("FT-SEM","lm_parent","lm")))) +
-    geom_point(size = 2) +  # 添加点
+    geom_point(size = 2) +  
     geom_line(linewidth = 0.8) +
     labs(x = "Sample size", y = "Width of CI",shape = "Method",linetype = "Method") +
     # theme_minimal() +
     theme(
-      panel.grid = element_blank(), # 去除背景的方框线
-      panel.border = element_rect(color = "black", fill = NA, linewidth = 0.8),  # 在面板周围添加黑色实线边框
-      panel.background = element_rect(fill = "white", color = NA),  # 设置面板背景为白色
+      panel.grid = element_blank(), 
+      panel.border = element_rect(color = "black", fill = NA, linewidth = 0.8),  
+      panel.background = element_rect(fill = "white", color = NA),  
       axis.ticks = element_line(color = "black"),
-      axis.title = element_text(family = "sans",size = 9), # 加粗并增大轴标题字体
-      axis.text = element_text(family = "sans",size = 9),  # 增大坐标轴刻度字体
-      strip.text = element_text(family = "sans",size = 9), # 增大 facet 标题的字体大小并加粗
-      aspect.ratio = 1,  # 设置图形为正方形
-      plot.title = element_text(hjust = 0.5, family = "sans", face = "bold", size = 9),  # 设置标题居中，字体样式和大小
+      axis.title = element_text(family = "sans",size = 9), 
+      axis.text = element_text(family = "sans",size = 9),  
+      strip.text = element_text(family = "sans",size = 9), 
+      aspect.ratio = 1,  
+      plot.title = element_text(hjust = 0.5, family = "sans", face = "bold", size = 9),  
     ) +
-    scale_x_continuous(breaks = c(1000, 2000, 3000)) + # 设置横坐标刻度为1000、2000和3000
+    scale_x_continuous(breaks = c(1000, 2000, 3000)) + 
     scale_y_continuous(limits = c(-0.005,0.5)) +
     ggtitle(title)
   CI
@@ -127,22 +127,22 @@ Power_plot <- function(data,title){
   Power <- ggplot(data, aes(x = Sample size, y = Offspring effect Power, group = Method,
                             shape = factor(Method, levels = c("FT-SEM","lm_parent","lm")),
                             linetype = factor(Method, levels = c("FT-SEM","lm_parent","lm")))) +
-    geom_point(size = 2) +  # 添加点
+    geom_point(size = 2) +  
     geom_line(linewidth = 0.8) +
     labs(x = "Sample size", y = "Power",shape = "Method",linetype = "Method") +
     # theme_minimal() +
     theme(
-      panel.grid = element_blank(), # 去除背景的方框线
-      panel.border = element_rect(color = "black", fill = NA, linewidth = 0.8),  # 在面板周围添加黑色实线边框
-      panel.background = element_rect(fill = "white", color = NA),  # 设置面板背景为白色
+      panel.grid = element_blank(), 
+      panel.border = element_rect(color = "black", fill = NA, linewidth = 0.8),  
+      panel.background = element_rect(fill = "white", color = NA),  
       axis.ticks = element_line(color = "black"),
-      axis.title = element_text(family = "sans",size = 9), # 加粗并增大轴标题字体
-      axis.text = element_text(family = "sans",size = 9),  # 增大坐标轴刻度字体
-      strip.text = element_text(family = "sans",size = 9), # 增大 facet 标题的字体大小并加粗
-      aspect.ratio = 1,  # 设置图形为正方形
-      plot.title = element_text(hjust = 0.5, family = "sans", face = "bold", size = 9),  # 设置标题居中，字体样式和大小
+      axis.title = element_text(family = "sans",size = 9), 
+      axis.text = element_text(family = "sans",size = 9),  
+      strip.text = element_text(family = "sans",size = 9), 
+      aspect.ratio = 1,  
+      plot.title = element_text(hjust = 0.5, family = "sans", face = "bold", size = 9), 
     ) +
-    scale_x_continuous(breaks = c(1000, 2000, 3000)) + # 设置横坐标刻度为1000、2000和3000
+    scale_x_continuous(breaks = c(1000, 2000, 3000)) + 
     scale_y_continuous(limits = c(-0.005,1)) +
     ggtitle(title)
   Power
@@ -188,5 +188,5 @@ grid <- plot_grid(
 legend <- get_legend(bias_alt_dynastic +
                        theme(legend.text = element_text(size = 9),
                              legend.title = element_text(size = 12)))
-# 将图例和之前的图形进行组合，并设置宽度比例
+
 plot_grid(grid, legend, rel_widths = c(3, .4))
