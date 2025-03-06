@@ -5,18 +5,18 @@ library(dplyr)
 # Modify the address of summary results about phs000620 before run the 
 
 dataset <- "ieu-b-40"
-# 综合分析的文件名
+
 result_name      <- c("NIC_parents","CON_parents","DEP_parents","DRG_parents","BD_parents","FSIQ")
 bind_result      <- data.frame()
 for (k in 1:length(result_name)){
   instrument <- extract_instruments(
-    dataset,                     # 指定访问数据集
-    p1 = 5e-08,                       # 过滤 SNP 的 p 值阈值
-    clump = FALSE                     # 进行 SNP clumping
+    dataset,                     
+    p1 = 5e-08,                      
+    clump = FALSE                    
   )
   
   Outcome <- read_outcome_data(
-    filename = paste0("G:/phs000620/MCTFR_clean/Output_end_20241121/", result_name[k], "_full.csv"),
+    filename = paste0("result_name[k], "_full.csv"),
     snps = instrument$SNP,
     sep = ",",
     snp_col = "snp_name",
@@ -35,7 +35,7 @@ for (k in 1:length(result_name)){
   instrument_clump   <- clump_data(instrument,clump_r2=0.001 ,pop = "EUR")
   instrument         <- instrument %>% filter(SNP %in% instrument_clump$SNP)
   
-  # 筛选工具变量（去除弱工具变量偏倚）
+ 
   Ffilter = 10
   dat <- instrument
   dat$eaf.exposure <- Outcome[Outcome$SNP %in% instrument$SNP,]$eaf.outcome
@@ -46,7 +46,7 @@ for (k in 1:length(result_name)){
   
   instrument <- instrument[instrument$SNP %in% outTab$SNP,]
   
-  # 对数据进行预处理，使其效应等位与效应量保持统一
+  
   dat <- harmonise_data(
     exposure_dat = instrument, 
     outcome_dat = Outcome
@@ -70,7 +70,7 @@ for (k in 1:length(result_name)){
   }
 }
 
-# 筛选工具变量（去除弱工具变量偏倚）
+
 Ffilter = 10
 dat <- instrument
 dat$eaf.exposure <- Outcome[Outcome$SNP %in% instrument$SNP,]$eaf.outcome
@@ -80,18 +80,18 @@ dat=transform(dat,F=(N-2)*R2/(1-R2))
 outTab=dat[dat$F>Ffilter,]
 
 dataset <- "ieu-b-4816"
-# 综合分析的文件名
+
 result_name      <- c("NIC_parents","CON_parents","DEP_parents","DRG_parents","BD_parents","FSIQ")
 bind_result      <- data.frame()
 for (k in 1:length(result_name)){
   instrument <- extract_instruments(
-    dataset,                     # 指定访问数据集
-    p1 = 5e-08,                       # 过滤 SNP 的 p 值阈值
-    clump = FALSE                     # 进行 SNP clumping
+    dataset,                     
+    p1 = 5e-08,                       
+    clump = FALSE                     
   )
   
   Outcome <- read_outcome_data(
-    filename = paste0("G:/phs000620/MCTFR_clean/Output_end_20241121/", result_name[k], "_full.csv"),
+    filename = paste0(result_name[k], "_full.csv"),
     snps = instrument$SNP,
     sep = ",",
     snp_col = "snp_name",
@@ -110,7 +110,7 @@ for (k in 1:length(result_name)){
   instrument_clump   <- clump_data(instrument,clump_r2=0.001 ,pop = "EUR")
   instrument         <- instrument %>% filter(SNP %in% instrument_clump$SNP)
   
-  # 筛选工具变量（去除弱工具变量偏倚）
+  
   Ffilter = 10
   dat <- instrument
   dat$eaf.exposure <- Outcome[Outcome$SNP %in% instrument$SNP,]$eaf.outcome
@@ -121,7 +121,7 @@ for (k in 1:length(result_name)){
   
   instrument <- instrument[instrument$SNP %in% outTab$SNP,]
   
-  # 对数据进行预处理，使其效应等位与效应量保持统一
+  
   dat <- harmonise_data(
     exposure_dat = instrument, 
     outcome_dat = Outcome
@@ -146,18 +146,18 @@ for (k in 1:length(result_name)){
 }
 
 dataset <- "ieu-b-4816"
-# 综合分析的文件名
+
 result_name      <- c("NIC_parents","CON_parents","DEP_parents","DRG_parents","BD_parents","FSIQ")
 bind_result      <- data.frame()
 for (k in 1:length(result_name)){
   instrument <- extract_instruments(
-    dataset,                     # 指定访问数据集
-    p1 = 5e-08,                       # 过滤 SNP 的 p 值阈值
-    clump = FALSE                     # 进行 SNP clumping
+    dataset,                     
+    p1 = 5e-08,                       
+    clump = FALSE                     
   )
   
   Outcome <- read_outcome_data(
-    filename = paste0("G:/phs000620/MCTFR_clean/Output_end_20241121/", result_name[k], "_full.csv"),
+    filename = paste0(result_name[k], "_full.csv"),
     snps = instrument$SNP,
     sep = ",",
     snp_col = "snp_name",
@@ -176,7 +176,7 @@ for (k in 1:length(result_name)){
   instrument_clump   <- clump_data(instrument,clump_r2=0.001 ,pop = "EUR")
   instrument         <- instrument %>% filter(SNP %in% instrument_clump$SNP)
   
-  # 筛选工具变量（去除弱工具变量偏倚）
+
   Ffilter = 10
   dat <- instrument
   dat$eaf.exposure <- Outcome[Outcome$SNP %in% instrument$SNP,]$eaf.outcome
@@ -187,7 +187,7 @@ for (k in 1:length(result_name)){
   
   instrument <- instrument[instrument$SNP %in% outTab$SNP,]
   
-  # 对数据进行预处理，使其效应等位与效应量保持统一
+  
   dat <- harmonise_data(
     exposure_dat = instrument, 
     outcome_dat = Outcome
