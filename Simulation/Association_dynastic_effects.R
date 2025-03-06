@@ -422,17 +422,17 @@ for (i in 1:length(rou)){
                                ))
   }
 }
-names(base_result)   <- c("Simulation","Method","MAF_1","MAF_2","rou","Sample_Size",
+names(base_result)   <- c("Simulation","Method","MAF_1","MAF_2","rou","Sample_size",
                           "Offspring effect Bias","Offspring effect RMSE"," Offspring effect Coverage","Offspring effect CILength","Offspring effect Type error I rates",
                           "Paternal effect Bias","Paternal effect RMSE","Paternal effect Coverage","Paternal effect CILength","Paternal effect Type error I rates",
                           "Maternal effect Bias","Maternal effect RMSE","Maternal effect Coverage","Maternal effect CILength","Maternal effect Type error I rates"
 )
-names(lm_parent_result)   <- c("Simulation","Method","MAF_1","MAF_2","rou","Sample_Size",
+names(lm_parent_result)   <- c("Simulation","Method","MAF_1","MAF_2","rou","Sample_size",
                                "Offspring Bias","Offspring effect RMSE","Offspring effect Coverage","Offspring effect CILength","Offspring effect Type error I rates",
                                "Paternal effectBias","Paternal effectRMSE","Paternal effectCoverage","Paternal effectCILength","Paternal effect Type error I rates",
                                "Maternal effect Bias","Maternal effect RMSE","Maternal effect Coverage","Maternal effect CILength","Maternal effect Type error I rates"
 )
-names(lm_result)   <- c("Simulation","Method","MAF_1","MAF_2","rou","Sample_Size",
+names(lm_result)   <- c("Simulation","Method","MAF_1","MAF_2","rou","Sample_size",
                         "Offspring Bias","Offspring effect RMSE","Offspring effect Coverage","Offspring effect CILength","Offspring effect Type error I rates",
                         "Paternal effect Bias","Paternal effect RMSE","Paternal effect Coverage","Paternal effect CILength","Paternal effect Type error I rates",
                         "Maternal effect Bias","Maternal effect RMSE","Maternal effect Coverage","Maternal effect CILength","Maternal effect Type error I rates"
