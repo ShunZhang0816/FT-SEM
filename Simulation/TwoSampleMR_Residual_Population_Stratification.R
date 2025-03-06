@@ -193,7 +193,7 @@ Simulate_IV <- function(Nrep = 100, N=1000, p1=0.25, p2=0.35, beta_o_e=0, beta_f
                        manifests <- names(data_sub_1)
                        latents <- c("e_f","e_m","e_o","var_o_snp","var_f_snp","var_m_snp","gf_snp_1","gm_snp_1","gf_snp_2","gm_snp_2")
                        IVmodel_base <- mxModel(model = "IV model", type = "RAM", mxData(observed = data_sub_1, type = "raw"),
-                                               # 指定theta作为自解释方差系数
+                                               
                                                mxPath(from = "gf_snp_1", arrows = 2, free = TRUE, values = 0.2, labels = "theta_snp"),
                                                mxPath(from = "gm_snp_1", arrows = 2, free = TRUE, values = 0.2, labels = "theta_snp"),
                                                mxPath(from = "gf_snp_2", arrows = 2, free = TRUE, values = 0.2, labels = "theta_snp"),
@@ -201,7 +201,7 @@ Simulate_IV <- function(Nrep = 100, N=1000, p1=0.25, p2=0.35, beta_o_e=0, beta_f
                                                mxPath(from = "var_f_snp", arrows = 2, free = TRUE, values = 0.2, labels = "theta_snp"),
                                                mxPath(from = "var_m_snp", arrows = 2, free = TRUE, values = 0.2, labels = "theta_snp"),
                                                mxPath(from = "var_o_snp", arrows = 2, free = TRUE, values = 0.2, labels = "theta_snp"),
-                                               # 指定由父母基因型影响子代基因型
+                                               
                                                mxPath(from = "gf_snp_1", to = "f_snp", arrows = 1, free = FALSE,
                                                       values = 0.5, labels = "snp_gf1_to_f"),
                                                mxPath(from = "gm_snp_1", to = "f_snp", arrows = 1, free = FALSE,
@@ -220,7 +220,7 @@ Simulate_IV <- function(Nrep = 100, N=1000, p1=0.25, p2=0.35, beta_o_e=0, beta_f
                                                       values = sqrt(0.5), labels = "var_m_m"),
                                                mxPath(from = "var_o_snp", to = "o_snp", arrows = 1, free = FALSE,
                                                       values = sqrt(0.5), labels = "var_o_o"),
-                                               # 指定暴露的残差的关系
+                                               
                                                mxPath(from = "e_f", arrows = 2, free = TRUE, values = 1, labels = "var_e_f"),
                                                mxPath(from = "e_m", arrows = 2, free = TRUE, values = 1, labels = "var_e_m"),
                                                mxPath(from = "e_o", arrows = 2, free = TRUE, values = 1, labels = "var_e_o"),
@@ -230,11 +230,11 @@ Simulate_IV <- function(Nrep = 100, N=1000, p1=0.25, p2=0.35, beta_o_e=0, beta_f
                                                       labels = "effect_e_m_E"),
                                                mxPath(from = "e_o", to = "Exposure_o", free = FALSE, values = 1,
                                                       labels = "effect_e_o_E"),
-                                               # 指定残差之间的相关性
+                                               
                                                mxPath(from="e_f", to="e_o", arrows=2, free=TRUE, values=0.2, labels=c("ρ")),
                                                mxPath(from="e_m", to="e_o", arrows=2, free=TRUE, values=0.2, labels=c("ρ")),
                                                mxPath(from="e_f", to="e_m", arrows=2, free=TRUE, values=0.2, labels=c("ρ")),
-                                               # 指定需要估计的效应
+                                               
                                                mxPath(from = "f_snp", to = "Exposure_o", free = TRUE,
                                                       arrows = 1, labels = "effect_f_e"),
                                                mxPath(from = "m_snp", to = "Exposure_o", free = TRUE,
@@ -265,7 +265,7 @@ Simulate_IV <- function(Nrep = 100, N=1000, p1=0.25, p2=0.35, beta_o_e=0, beta_f
                        manifests <- names(data_sub_2)
                        latents <- c("e_f","e_m","e_o","var_o_snp","var_f_snp","var_m_snp","gf_snp_1","gm_snp_1","gf_snp_2","gm_snp_2")
                        IVmodel_base <- mxModel(model = "IVmodel", type = "RAM", mxData(observed = data_sub_2, type = "raw"),
-                                               # 指定theta作为自解释方差系数
+                                               
                                                mxPath(from = "gf_snp_1", arrows = 2, free = TRUE, values = 0.2, labels = "theta_snp"),
                                                mxPath(from = "gm_snp_1", arrows = 2, free = TRUE, values = 0.2, labels = "theta_snp"),
                                                mxPath(from = "gf_snp_2", arrows = 2, free = TRUE, values = 0.2, labels = "theta_snp"),
@@ -273,7 +273,7 @@ Simulate_IV <- function(Nrep = 100, N=1000, p1=0.25, p2=0.35, beta_o_e=0, beta_f
                                                mxPath(from = "var_f_snp", arrows = 2, free = TRUE, values = 0.2, labels = "theta_snp"),
                                                mxPath(from = "var_m_snp", arrows = 2, free = TRUE, values = 0.2, labels = "theta_snp"),
                                                mxPath(from = "var_o_snp", arrows = 2, free = TRUE, values = 0.2, labels = "theta_snp"),
-                                               # 指定由父母基因型影响子代基因型
+                                               
                                                mxPath(from = "gf_snp_1", to = "f_snp", arrows = 1, free = FALSE, values = 0.5, labels = "snp_gf1_to_f"),
                                                mxPath(from = "gm_snp_1", to = "f_snp", arrows = 1, free = FALSE, values = 0.5, labels = "snp_gm1_to_f"),
                                                mxPath(from = "gf_snp_2", to = "m_snp", arrows = 1, free = FALSE, values = 0.5, labels = "snp_gf2_to_m"),
@@ -283,18 +283,18 @@ Simulate_IV <- function(Nrep = 100, N=1000, p1=0.25, p2=0.35, beta_o_e=0, beta_f
                                                mxPath(from = "var_f_snp", to = "f_snp", arrows = 1, free = FALSE, values = sqrt(0.5), labels = "var_f_f"),
                                                mxPath(from = "var_m_snp", to = "m_snp", arrows = 1, free = FALSE, values = sqrt(0.5), labels = "var_m_m"),
                                                mxPath(from = "var_o_snp", to = "o_snp", arrows = 1, free = FALSE, values = sqrt(0.5), labels = "var_o_o"),
-                                               # 指定暴露的残差的关系
+                                               
                                                mxPath(from = "e_f", arrows = 2, free = TRUE, values = 1, labels = "var_e_f"),
                                                mxPath(from = "e_m", arrows = 2, free = TRUE, values = 1, labels = "var_e_m"),
                                                mxPath(from = "e_o", arrows = 2, free = TRUE, values = 1, labels = "var_e_o"),
                                                mxPath(from = "e_f", to = "Outcome_f", free = FALSE, values = 1, labels = "effect_e_f_O"),
                                                mxPath(from = "e_m", to = "Outcome_m", free = FALSE, values = 1, labels = "effect_e_m_O"),
                                                mxPath(from = "e_o", to = "Outcome_o", free = FALSE, values = 1, labels = "effect_e_o_O"),
-                                               # 指定残差之间的相关性
+                                               
                                                mxPath(from="e_f", to="e_o", arrows=2, free=TRUE, values=0.2, labels=c("ρ")),
                                                mxPath(from="e_m", to="e_o", arrows=2, free=TRUE, values=0.2, labels=c("ρ")),
                                                mxPath(from="e_f", to="e_m", arrows=2, free=TRUE, values=0.2, labels=c("ρ")),
-                                               # 指定需要估计的效应
+                                               
                                                mxPath(from = "f_snp", to = "Outcome_o", free = TRUE, arrows = 1, labels = "effect_f_O"),
                                                mxPath(from = "m_snp", to = "Outcome_o", free = TRUE, arrows = 1, labels = "effect_m_O"),
                                                mxPath(from = "o_snp", to = "Outcome_o", free = TRUE, arrows = 1, labels = "effect_o_O"),
@@ -352,14 +352,14 @@ Simulate_IV <- function(Nrep = 100, N=1000, p1=0.25, p2=0.35, beta_o_e=0, beta_f
                                effect_lm - 1.96*effect_lm_std,
                                effect_lm + 1.96*effect_lm_std
                          ))
-                       names(base)      <- c("方法名","效应估计值","标准误","P值","置信区间下界","置信区间上界")
-                       names(lm_parent) <- c("方法名","效应估计值","标准误","P值","置信区间下界","置信区间上界")
-                       names(lm_result) <- c("方法名","效应估计值","标准误","P值","置信区间下界","置信区间上界")
+                       names(base)      <- c("Method","Estimates","SE","P","CI_lower","CI_upper")
+                       names(lm_parent) <- c("Method","Estimates","SE","P","CI_lower","CI_upper")
+                       names(lm_result) <- c("Method","Estimates","SE","P","CI_lower","CI_upper")
                        bind_result <- rbind(base,lm_parent,lm_result)
                        bind_result
                      }
   result             <- as.data.frame(result)
-  names(result)      <- c("方法名","效应估计值","标准误","P值","置信区间下界","置信区间上界")
+  names(result)      <- c("Method","Esitimates","SE","P","CI_lower","CI_upper")
   gc()
   stopCluster(cl)
   time2 <- Sys.time()
@@ -459,13 +459,13 @@ for (i in 1:length(rou)){
                        ))
   }
 }
-names(base_result)   <- c("模拟次数","地区1次等位基因频率","地区2次等位基因频率","残差相关性","样本量","方法",
-                          "Bias","RMSE","Coverage","CILength","第一类错误率"
+names(base_result)   <- c("Simulation","MAF_1","MAF_2","rou","Sample size","Method",
+                          "Bias","RMSE","Coverage","CILength","Type I error rates"
 )
-names(lm_parent_result)   <- c("模拟次数","地区1次等位基因频率","地区2次等位基因频率","残差相关性","样本量","方法",
-                               "Bias","RMSE","Coverage","CILength","第一类错误率"
+names(lm_parent_result)   <- c("Simulation","MAF_1","MAF_2","rou","Sample size","Method",
+                               "Bias","RMSE","Coverage","CILength","Type I error rates"
 )
-names(lm_result)   <- c("模拟次数","地区1次等位基因频率","地区2次等位基因频率","残差相关性","样本量","方法",
-                        "Bias","RMSE","Coverage","CILength","第一类错误率"
+names(lm_result)   <- c("Simulation","MAF_1","MAF_2","rou","Sample size","Method",
+                        "Bias","RMSE","Coverage","CILength","Type I error rates"
 )
 result               <- rbind(base_result,lm_parent_result,lm_result)
