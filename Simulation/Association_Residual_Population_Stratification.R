@@ -131,7 +131,7 @@ Simulate_IV <- function(Nrep = 100, N=1000, p1=0.35,p2=0.25, beta_o_e=0, beta_f_
                                       "Exposure_f","Exposure_m","Exposure_o")
                        latents <- c("e_f","e_m","e_o","var_o_snp","var_f_snp","var_m_snp","gf_snp_1","gm_snp_1","gf_snp_2","gm_snp_2")
                        IVmodel_base <- mxModel(model = "IV model", type = "RAM", mxData(observed = data_sub, type = "raw"),
-                                               # 指定theta作为自解释方差系数
+                                               
                                                mxPath(from = "gf_snp_1", arrows = 2, free = TRUE, values = 1, labels = "theta_snp"),
                                                mxPath(from = "gm_snp_1", arrows = 2, free = TRUE, values = 1, labels = "theta_snp"),
                                                mxPath(from = "gf_snp_2", arrows = 2, free = TRUE, values = 1, labels = "theta_snp"),
@@ -139,7 +139,7 @@ Simulate_IV <- function(Nrep = 100, N=1000, p1=0.35,p2=0.25, beta_o_e=0, beta_f_
                                                mxPath(from = "var_f_snp", arrows = 2, free = TRUE, values = 1, labels = "theta_snp"),
                                                mxPath(from = "var_m_snp", arrows = 2, free = TRUE, values = 1, labels = "theta_snp"),
                                                mxPath(from = "var_o_snp", arrows = 2, free = TRUE, values = 1, labels = "theta_snp"),
-                                               # 指定由父母基因型影响子代基因型
+                                               
                                                mxPath(from = "gf_snp_1", to = "f_snp", arrows = 1, free = FALSE,
                                                       values = 0.5, labels = "snp_gf1_to_f"),
                                                mxPath(from = "gm_snp_1", to = "f_snp", arrows = 1, free = FALSE,
@@ -158,7 +158,7 @@ Simulate_IV <- function(Nrep = 100, N=1000, p1=0.35,p2=0.25, beta_o_e=0, beta_f_
                                                       values = sqrt(0.5), labels = "var_m_m"),
                                                mxPath(from = "var_o_snp", to = "o_snp", arrows = 1, free = FALSE,
                                                       values = sqrt(0.5), labels = "var_o_o"),
-                                               # 指定暴露的残差的关系
+                                               
                                                mxPath(from = "e_f", arrows = 2, free = TRUE, values = 1, labels = "var_e_f"),
                                                mxPath(from = "e_m", arrows = 2, free = TRUE, values = 1, labels = "var_e_m"),
                                                mxPath(from = "e_o", arrows = 2, free = TRUE, values = 1, labels = "var_e_o"),
@@ -168,11 +168,11 @@ Simulate_IV <- function(Nrep = 100, N=1000, p1=0.35,p2=0.25, beta_o_e=0, beta_f_
                                                       labels = "effect_e_m_E"),
                                                mxPath(from = "e_o", to = "Exposure_o", free = FALSE, values = 1,
                                                       labels = "effect_e_o_E"),
-                                               # 指定残差之间的相关性
+                                               
                                                mxPath(from="e_f", to="e_o", arrows=2, free=TRUE, values=0.2, labels=c("ρ")),
                                                mxPath(from="e_m", to="e_o", arrows=2, free=TRUE, values=0.2, labels=c("ρ")),
                                                mxPath(from="e_f", to="e_m", arrows=2, free=TRUE, values=0.2, labels=c("ρ")),
-                                               # 指定需要估计的效应
+                                               
                                                mxPath(from = "f_snp", to = "Exposure_o", free = TRUE,
                                                       arrows = 1, labels = "effect_f_e"),
                                                mxPath(from = "m_snp", to = "Exposure_o", free = TRUE,
@@ -260,17 +260,17 @@ Simulate_IV <- function(Nrep = 100, N=1000, p1=0.35,p2=0.25, beta_o_e=0, beta_f_
                            (lm_m_summary$coefficients[2,1]+1.96*lm_m_summary$coefficients[2,2])
                          )
                        )
-                       names(base) <- c("方法名",
+                       names(base) <- c("Method",
                                         "Beta_o_e", "SE_o_e", "P_wald_o_e","CI_lower_o_e","CI_upper_o_e",
                                         "Beta_f_e", "SE_f_e", "P_wald_f_e","CI_lower_f_e","CI_upper_f_e",
                                         "Beta_m_e", "SE_m_e", "P_wald_m_e","CI_lower_m_e","CI_upper_m_e"
                        )
-                       names(lm_parent_result) <- c("方法名",
+                       names(lm_parent_result) <- c("Method",
                                                     "Beta_o_e", "SE_o_e", "P_wald_o_e","CI_lower_o_e","CI_upper_o_e",
                                                     "Beta_f_e", "SE_f_e", "P_wald_f_e","CI_lower_f_e","CI_upper_f_e",
                                                     "Beta_m_e", "SE_m_e", "P_wald_m_e","CI_lower_m_e","CI_upper_m_e"
                        )
-                       names(lm_result) <- c("方法名",
+                       names(lm_result) <- c("Method",
                                              "Beta_o_e", "SE_o_e", "P_wald_o_e","CI_lower_o_e","CI_upper_o_e",
                                              "Beta_f_e", "SE_f_e", "P_wald_f_e","CI_lower_f_e","CI_upper_f_e",
                                              "Beta_m_e", "SE_m_e", "P_wald_m_e","CI_lower_m_e","CI_upper_m_e"
@@ -279,7 +279,7 @@ Simulate_IV <- function(Nrep = 100, N=1000, p1=0.35,p2=0.25, beta_o_e=0, beta_f_
                        bind_result
                      }
   result        <- as.data.frame(result)
-  names(result) <- c("方法",
+  names(result) <- c("Method",
                      "Beta_o_e", "SE_o_e", "P_wald_o_e","CI_lower_o_e","CI_upper_o_e",
                      "Beta_f_e", "SE_f_e", "P_wald_f_e","CI_lower_f_e","CI_upper_f_e",
                      "Beta_m_e", "SE_m_e", "P_wald_m_e","CI_lower_m_e","CI_upper_m_e"
@@ -441,19 +441,19 @@ for (i in 1:length(rou)){
                        ))
   }
 }
-names(base_result)   <- c("模拟次数","方法","地区1次等位基因频率","地区2次等位基因频率","残差相关性","样本量",
-                          "直接效应Bias","直接效应RMSE","直接效应Coverage","直接效应CILength","直接效应第一类错误率",
-                          "父亲效应Bias","父亲效应RMSE","父亲效应Coverage","父亲效应CILength","父亲效应第一类错误率",
-                          "母亲效应Bias","母亲效应RMSE","母亲效应Coverage","母亲效应CILength","母亲效应第一类错误率"
+names(base_result)   <- c("Simulation","Method","MAF_1","MAF_2","rou","Sample_Size",
+                          "Offspring effect Bias","Offspring effect RMSE"," Offspring effect Coverage","Offspring effect CILength","Offspring effect Type error I rates",
+                          "Paternal effect Bias","Paternal effect RMSE","Paternal effect Coverage","Paternal effect CILength","Paternal effect Type error I rates",
+                          "Maternal effect Bias","Maternal effect RMSE","Maternal effect Coverage","Maternal effect CILength","Maternal effect Type error I rates"
 )
-names(lm_parent_result)   <- c("模拟次数","方法","地区1次等位基因频率","地区2次等位基因频率","残差相关性","样本量",
-                               "直接效应Bias","直接效应RMSE","直接效应Coverage","直接效应CILength","直接效应第一类错误率",
-                               "父亲效应Bias","父亲效应RMSE","父亲效应Coverage","父亲效应CILength","父亲效应第一类错误率",
-                               "母亲效应Bias","母亲效应RMSE","母亲效应Coverage","母亲效应CILength","母亲效应第一类错误率"
+names(lm_parent_result)   <- c("Simulation","Method","MAF_1","MAF_2","rou","Sample_Size",
+                               "Offspring Bias","Offspring effect RMSE","Offspring effect Coverage","Offspring effect CILength","Offspring effect Type error I rates",
+                               "Paternal effectBias","Paternal effectRMSE","Paternal effectCoverage","Paternal effectCILength","Paternal effect Type error I rates",
+                               "Maternal effect Bias","Maternal effect RMSE","Maternal effect Coverage","Maternal effect CILength","Maternal effect Type error I rates"
 )
-names(lm_result)   <- c("模拟次数","方法","地区1次等位基因频率","地区2次等位基因频率","残差相关性","样本量",
-                        "直接效应Bias","直接效应RMSE","直接效应Coverage","直接效应CILength","直接效应第一类错误率",
-                        "父亲效应Bias","父亲效应RMSE","父亲效应Coverage","父亲效应CILength","父亲效应第一类错误率",
-                        "母亲效应Bias","母亲效应RMSE","母亲效应Coverage","母亲效应CILength","母亲效应第一类错误率"
+names(lm_result)   <- c("Simulation","Method","MAF_1","MAF_2","rou","Sample_Size",
+                        "Offspring Bias","Offspring effect RMSE","Offspring effect Coverage","Offspring effect CILength","Offspring effect Type error I rates",
+                        "Paternal effect Bias","Paternal effect RMSE","Paternal effect Coverage","Paternal effect CILength","Paternal effect Type error I rates",
+                        "Maternal effect Bias","Maternal effect RMSE","Maternal effect Coverage","Maternal effect CILength","Maternal effect Type error I rates"
 )
 result               <- rbind(base_result,lm_parent_result,lm_result)
