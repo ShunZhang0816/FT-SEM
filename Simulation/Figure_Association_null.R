@@ -142,7 +142,7 @@ Type_one_error_rate_plot <- function(data,title){
       aspect.ratio = 1,  
       plot.title = element_text(hjust = 0.5, family = "sans", face = "bold", size = 9),  # 设置标题居中，字体样式和大小
     ) +
-    scale_x_continuous(breaks = c(1000, 2000, 3000)) + # 设置横坐标刻度为1000、2000和3000
+    scale_x_continuous(breaks = c(1000, 2000, 3000)) + 
     scale_y_continuous(limits = c(-0.005,1)) +
     ggtitle(title)
   Type_one_error_rate
@@ -188,5 +188,5 @@ grid <- plot_grid(
 legend <- get_legend(bias_null_dynastic +
                        theme(legend.text = element_text(size = 9),
                              legend.title = element_text(size = 12)))
-# 将图例和之前的图形进行组合，并设置宽度比例
+
 plot_grid(grid, legend, rel_widths = c(3, .4))
