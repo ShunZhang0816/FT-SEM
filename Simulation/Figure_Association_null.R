@@ -124,7 +124,7 @@ CI_null_population <- CI_plot(population_null, "Residual population stratificati
 CI_null_none       <- CI_plot(none_null, "No bias")
 
 Type_one_error_rate_plot <- function(data,title){
-  Type_one_error_rate <- ggplot(data, aes(x = Sample size, y = Offspring_effect_Type I error rates, group = Method,
+  Type_one_error_rate <- ggplot(data, aes(x = Sample size, y = Offspring_effect_Type_one_error_rates, group = Method,
                                           shape = factor(Method, levels = c("FT-SEM","lm_parent","lm")),
                                           linetype = factor(Method, levels = c("FT-SEM","lm_parent","lm")))) +
     geom_point(size = 2) +  
