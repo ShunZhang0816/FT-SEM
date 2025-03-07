@@ -1,5 +1,6 @@
+library(FTSEM)
 library(data.table)
-data <- read.table("./Example_1.txt")
+data <- read.table("Example_1.txt")
 data <- as.data.table(data)
 
 for(i in 1:10){
@@ -13,5 +14,5 @@ for(i in 1:10){
   } else {
     result <- as.data.frame(rbind(result,FT_SEM(trio_data,snp_name[i])))
   }
-  result
 }
+result

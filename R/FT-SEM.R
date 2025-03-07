@@ -1,10 +1,10 @@
 #' @title The main function for family trios structural equation model (FT-SEM)
 #' @description A robust and powerful GWAS method for family trios
 #' @param data_sub A data.frame object for FT-SEM contains six columns: the father's genotype, the mother's genotype, the offspring's genotype, the father's phenotype, the mother's phenotype, and the offspring's phenotype. These columns are named f_snp, m_snp, o_snp, Exposure_f, Exposure_m, and Exposure_o, respectively.
+#' @import OpenMx
 #' @export
 
 FT_SEM <- function(data_sub = NULL, snp_name = NA){
-  library(OpenMx)
   # Set up model parameters
   manifests <- names(data_sub)
   latents <- c("e_f","e_m","e_o","var_o_snp","var_f_snp","var_m_snp","gf_snp_1","gm_snp_1","gf_snp_2","gm_snp_2")

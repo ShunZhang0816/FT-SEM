@@ -7,5 +7,6 @@ Maintainer: Shun Zhang <3207042023@i.smu.edu.cn>, Ji-yuan Zhou <zhoujy@smu.edu.c
 Description: A robust and powerful GWAS method for family trios supporting within-family Mendelian randomization analysis
 License: GPL-2
 Encoding: UTF-8
+Imports: dplyr (>= 1.1.4), OpenMx (>= 2.21.11)
 LazyData: true
 RoxygenNote: 7.3.1
