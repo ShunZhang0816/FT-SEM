@@ -21,7 +21,13 @@ library(FTSEM)
 
 # Example
 One simple example to use the FT-SEM to perform GWAS can be found at /Example/Example_1.  
-Example_1 is in the standard format extracted using PLINK 1.9. By applying the --recodeA option, traditional PLINK file formats can be converted into this format. The first five columns represent individual information: FID (Family ID), IID (Individual ID), PAT (Paternal ID), MAT (Maternal ID), and y (Phenotypic value). The subsequent columns correspond to SNP genotypes, where each SNP is coded as 0, 1, or 2, indicating the number of minor alleles.  
+Example_1 is in the standard format extracted using PLINK 1.9. By applying the --recodeA option, traditional PLINK file formats can be converted into this format.  
+For example,  
+```
+plink --bfile your_data_name --recodeA --out output_data_name
+```
+After that, you will get a file with a .raw extension. You can directly import it into R for use or change its extension to .txt before importing it into R.  
+The first five columns of this file represent individual information: FID (Family ID), IID (Individual ID), PAT (Paternal ID), MAT (Maternal ID), and y (Phenotypic value). The subsequent columns correspond to SNP genotypes, where each SNP is coded as 0, 1, or 2, indicating the number of minor alleles.  
 Another straightforward example demonstrating the use of FT-SEM to conduct GWAS separately on exposure and outcome datasets, followed by combining the summary results using IVW to estimate causal effects, can be found in ./Example/Example_2.  
 Example_2 consists of two files, Example_2_Exposure and Example_2_Outcome, both of which follow the same format as Example_1.
 
