@@ -12,7 +12,7 @@ population_alt <- population_alt[population_alt$rou == 0.3,]
 none_alt       <- none_alt[none_alt$rou == 0.3,]
 
 bias_plot <- function(data,title){
-  bias <- ggplot(data, aes(x = Sample_size, y = Offspring effect Bias, group = Method,
+  bias <- ggplot(data, aes(x = Sample_size, y = Offspring_effect_Bias, group = Method,
                            shape = factor(Method, levels = c("FT-SEM","lm_parent","lm")),
                            linetype = factor(Method, levels = c("FT-SEM","lm_parent","lm")))) +
     geom_point(size = 2) +  
@@ -40,7 +40,7 @@ bias_alt_population <- bias_plot(population_alt, "Residual population stratifica
 bias_alt_none       <- bias_plot(none_alt, "No bias")
 
 RMSE_plot <- function(data,title){
-  RMSE <- ggplot(data, aes(x = Sample_size, y = Offspring effect RMSE, group = Method,
+  RMSE <- ggplot(data, aes(x = Sample_size, y = Offspring_effect_RMSE, group = Method,
                            shape = factor(Method, levels = c("FT-SEM","lm_parent","lm")),
                            linetype = factor(Method, levels = c("FT-SEM","lm_parent","lm")))) +
     geom_point(size = 2) +  
@@ -68,7 +68,7 @@ RMSE_alt_population <- RMSE_plot(population_alt, "Residual population stratifica
 RMSE_alt_none       <- RMSE_plot(none_alt, "No bias")
 
 Coverage_plot <- function(data,title){
-  Coverage <- ggplot(data, aes(x = Sample_size, y = Offspring effect Coverage, group = Method,
+  Coverage <- ggplot(data, aes(x = Sample_size, y = Offspring_effect_Coverage, group = Method,
                                shape = factor(Method, levels = c("FT-SEM","lm_parent","lm")),
                                linetype = factor(Method, levels = c("FT-SEM","lm_parent","lm")))) +
     geom_point(size = 2) +  
@@ -96,7 +96,7 @@ Coverage_alt_population <- Coverage_plot(population_alt, "Residual population st
 Coverage_alt_none       <- Coverage_plot(none_alt, "No bias")
 
 CI_plot <- function(data,title){
-  CI <- ggplot(data, aes(x = Sample_size, y = Offspring effect CILength, group = Method,
+  CI <- ggplot(data, aes(x = Sample_size, y = Offspring_effect_CILength, group = Method,
                          shape = factor(Method, levels = c("FT-SEM","lm_parent","lm")),
                          linetype = factor(Method, levels = c("FT-SEM","lm_parent","lm")))) +
     geom_point(size = 2) +  
@@ -124,7 +124,7 @@ CI_alt_population <- CI_plot(population_alt, "Residual population stratification
 CI_alt_none       <- CI_plot(none_alt, "No bias")
 
 Power_plot <- function(data,title){
-  Power <- ggplot(data, aes(x = Sample_size, y = Offspring effect Power, group = Method,
+  Power <- ggplot(data, aes(x = Sample_size, y = Offspring_effect_Power, group = Method,
                             shape = factor(Method, levels = c("FT-SEM","lm_parent","lm")),
                             linetype = factor(Method, levels = c("FT-SEM","lm_parent","lm")))) +
     geom_point(size = 2) +  
