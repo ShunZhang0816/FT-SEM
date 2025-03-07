@@ -12,12 +12,12 @@ population_null <- population_null[population_null$rou == 0.3,]
 none_null       <- none_null[none_null$rou == 0.3,]
 
 bias_plot <- function(data,title){
-  bias <- ggplot(data, aes(x = Sample size, y = Offspring_effect_Bias, group = Method,
+  bias <- ggplot(data, aes(x = Sample_size, y = Offspring_effect_Bias, group = Method,
                            shape = factor(Method, levels = c("FT-SEM","lm_parent","lm")),
                            linetype = factor(Method, levels = c("FT-SEM","lm_parent","lm")))) +
     geom_point(size = 2) +  
     geom_line(linewidth = 0.8) +
-    labs(x = "Sample size", y = "Bias",shape = "Method",linetype = "Method") +
+    labs(x = "Sample_size", y = "Bias",shape = "Method",linetype = "Method") +
     # theme_minimal() +
     theme(
       panel.grid = element_blank(),
@@ -40,12 +40,12 @@ bias_null_population <- bias_plot(population_null, "Residual population stratifi
 bias_null_none       <- bias_plot(none_null, "No bias")
 
 RMSE_plot <- function(data,title){
-  RMSE <- ggplot(data, aes(x = Sample size, y = Offspring_effect_RMSE, group = Method,
+  RMSE <- ggplot(data, aes(x = Sample_size, y = Offspring_effect_RMSE, group = Method,
                            shape = factor(Method, levels = c("FT-SEM","lm_parent","lm")),
                            linetype = factor(Method, levels = c("FT-SEM","lm_parent","lm")))) +
     geom_point(size = 2) +  
     geom_line(linewidth = 0.8) +
-    labs(x = "Sample size", y = "RMSE",shape = "Method",linetype = "Method") +
+    labs(x = "Sample_size", y = "RMSE",shape = "Method",linetype = "Method") +
     # theme_minimal() +
     theme(
       panel.grid = element_blank(), 
@@ -68,12 +68,12 @@ RMSE_null_population <- RMSE_plot(population_null, "Residual population stratifi
 RMSE_null_none       <- RMSE_plot(none_null, "No bias")
 
 Coverage_plot <- function(data,title){
-  Coverage <- ggplot(data, aes(x = Sample size, y = Offspring_effect_Coverage, group = Method,
+  Coverage <- ggplot(data, aes(x = Sample_size, y = Offspring_effect_Coverage, group = Method,
                                shape = factor(Method, levels = c("FT-SEM","lm_parent","lm")),
                                linetype = factor(Method, levels = c("FT-SEM","lm_parent","lm")))) +
     geom_point(size = 2) +  
     geom_line(linewidth = 0.8) +
-    labs(x = "Sample size", y = "CP of CI",shape = "Method",linetype = "Method") +
+    labs(x = "Sample_size", y = "CP of CI",shape = "Method",linetype = "Method") +
     # theme_minimal() +
     theme(
       panel.grid = element_blank(), 
@@ -96,12 +96,12 @@ Coverage_null_population <- Coverage_plot(population_null, "Residual population 
 Coverage_null_none       <- Coverage_plot(none_null, "No bias")
 
 CI_plot <- function(data,title){
-  CI <- ggplot(data, aes(x = Sample size, y = Offspring_effect_CILength, group = Method,
+  CI <- ggplot(data, aes(x = Sample_size, y = Offspring_effect_CILength, group = Method,
                          shape = factor(Method, levels = c("FT-SEM","lm_parent","lm")),
                          linetype = factor(Method, levels = c("FT-SEM","lm_parent","lm")))) +
     geom_point(size = 2) +  
     geom_line(linewidth = 0.8) +
-    labs(x = "Sample size", y = "Width of CI",shape = "Method",linetype = "Method") +
+    labs(x = "Sample_size", y = "Width of CI",shape = "Method",linetype = "Method") +
     # theme_minimal() +
     theme(
       panel.grid = element_blank(), 
@@ -124,12 +124,12 @@ CI_null_population <- CI_plot(population_null, "Residual population stratificati
 CI_null_none       <- CI_plot(none_null, "No bias")
 
 Type_one_error_rate_plot <- function(data,title){
-  Type_one_error_rate <- ggplot(data, aes(x = Sample size, y = Offspring_effect_Type_one_error_rates, group = Method,
+  Type_one_error_rate <- ggplot(data, aes(x = Sample_size, y = Offspring_effect_Type_one_error_rates, group = Method,
                                           shape = factor(Method, levels = c("FT-SEM","lm_parent","lm")),
                                           linetype = factor(Method, levels = c("FT-SEM","lm_parent","lm")))) +
     geom_point(size = 2) +  
     geom_line(linewidth = 0.8) +
-    labs(x = "Sample size", y = "Type I error rate",shape = "Method",linetype = "Method") +
+    labs(x = "Sample_size", y = "Type I error rate",shape = "Method",linetype = "Method") +
     # theme_minimal() +
     theme(
       panel.grid = element_blank(), 
