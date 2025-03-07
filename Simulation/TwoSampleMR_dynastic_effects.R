@@ -400,13 +400,13 @@ for (i in 1:length(rou)){
                        ))
   }
 }
-names(base_result)   <- c("Simulation","MAF","rou","Sample size","Method",
-                          "Bias","RMSE","Coverage","CILength","Type I error rates"
+names(base_result)   <- c("Simulation","MAF","rou","Sample_size","Method",
+                          "Bias","RMSE","Coverage","CILength","Type_one_error_rates"
 )
-names(lm_parent_result)   <- c("Simulation","MAF","rou","Sample size","Method",
-                               "Bias","RMSE","Coverage","CILength","Type I error rates"
+names(lm_parent_result)   <- c("Simulation","MAF","rou","Sample_size","Method",
+                               "Bias","RMSE","Coverage","CILength","Type_one_error_rates"
 )
-names(lm_result)   <- c("Simulation","MAF","rou","Sample size","Method",
-                        "Bias","RMSE","Coverage","CILength","Type I error rates"
+names(lm_result)   <- c("Simulation","MAF","rou","Sample_size","Method",
+                        "Bias","RMSE","Coverage","CILength","Type_one_error_rates"
 )
 result               <- rbind(base_result,lm_parent_result,lm_result)
