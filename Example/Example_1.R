@@ -1,4 +1,5 @@
 library(FTSEM)
+# install.packages("data.table")
 library(data.table)
 data <- read.table("Example_1.txt")
 data <- as.data.table(data)
