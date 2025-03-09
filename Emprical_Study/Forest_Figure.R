@@ -1,3 +1,7 @@
+# Need result files in the directory
+# BMI_lm: the results of lm model
+# BMI_lm_parent: the results of lm_parent model
+# BMI_SEM: the results of FT-SEM model
 
 library(tidyverse)
 library(forestplot)
@@ -473,7 +477,7 @@ combined_plot <- plot_grid(NIC_grob, CON_grob, DEP_grob, DRG_grob, BD_grob,
                            label_x = 0.01,
                            label_y = 1.05,
                            hjust = 0.5,
-                           label_size = 14)  # label_x 控制标签的水平位置，0 为最左，1 为最右
+                           label_size = 14) 
 
 ggsave(filename = "./lm_parent.pdf",height = 180, width = 200, units = "mm")
 ggsave(filename = "./lm_parent.png",height = 180, width = 200, units = "mm", dpi = 300)
