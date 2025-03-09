@@ -442,18 +442,19 @@ for (i in 1:length(rou)){
   }
 }
 names(base_result)   <- c("Simulation","Method","MAF_1","MAF_2","rou","Sample_size",
-                          "Offspring_effect_Bias","Offspring_effect_RMSE"," Offspring_effect_Coverage","Offspring_effect_CILength","Offspring_effect_Type_one_error_rates",
+                          "Offspring_effect_Bias","Offspring_effect_RMSE","Offspring_effect_Coverage","Offspring_effect_CILength","Offspring_effect_Type_one_error_rates",
                           "Paternal_effect_Bias","Paternal_effect_RMSE","Paternal_effect_Coverage","Paternal_effect_CILength","Paternal_effect_Type_one_error_rates",
                           "Maternal_effect_Bias","Maternal_effect_RMSE","Maternal_effect_Coverage","Maternal_effect_CILength","Maternal_effect_Type_one_error_rates"
 )
 names(lm_parent_result)   <- c("Simulation","Method","MAF_1","MAF_2","rou","Sample_size",
-                               "Offspring Bias","Offspring_effect_RMSE","Offspring_effect_Coverage","Offspring_effect_CILength","Offspring_effect_Type_one_error_rates",
-                               "Paternal effectBias","Paternal effectRMSE","Paternal effectCoverage","Paternal effectCILength","Paternal_effect_Type_one_error_rates",
+                               "Offspring_effect_Bias","Offspring_effect_RMSE","Offspring_effect_Coverage","Offspring_effect_CILength","Offspring_effect_Type_one_error_rates",
+                               "Paternal_effect_Bias","Paternal_effect_RMSE","Paternal_effect_Coverage","Paternal_effect_CILength","Paternal_effect_Type_one_error_rates",
                                "Maternal_effect_Bias","Maternal_effect_RMSE","Maternal_effect_Coverage","Maternal_effect_CILength","Maternal_effect_Type_one_error_rates"
 )
 names(lm_result)   <- c("Simulation","Method","MAF_1","MAF_2","rou","Sample_size",
-                        "Offspring Bias","Offspring_effect_RMSE","Offspring_effect_Coverage","Offspring_effect_CILength","Offspring_effect_Type_one_error_rates",
+                        "Offspring_effect_Bias","Offspring_effect_RMSE","Offspring_effect_Coverage","Offspring_effect_CILength","Offspring_effect_Type_one_error_rates",
                         "Paternal_effect_Bias","Paternal_effect_RMSE","Paternal_effect_Coverage","Paternal_effect_CILength","Paternal_effect_Type_one_error_rates",
                         "Maternal_effect_Bias","Maternal_effect_RMSE","Maternal_effect_Coverage","Maternal_effect_CILength","Maternal_effect_Type_one_error_rates"
 )
 result               <- rbind(base_result,lm_parent_result,lm_result)
+result

@@ -410,3 +410,4 @@ names(lm_result)   <- c("Simulation","MAF","rou","Sample_size","Method",
                         "Bias","RMSE","Coverage","CILength","Type_one_error_rates"
 )
 result               <- rbind(base_result,lm_parent_result,lm_result)
+result

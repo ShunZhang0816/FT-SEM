@@ -367,7 +367,7 @@ Simulate_IV <- function(Nrep = 100, N=1000, p1=0.25, p2=0.35, beta_o_e=0, beta_f
   return(result)
 }
 
-Nrep            <- 10000
+Nrep            <- 100
 rou             <- c(0.3,0.6)
 MAF             <- 0.3  
 Nsample         <- c(2000,4000,6000) 
@@ -469,3 +469,4 @@ names(lm_result)   <- c("Simulation","MAF_1","MAF_2","rou","Sample_size","Method
                         "Bias","RMSE","Coverage","CILength","Type_one_error_rates"
 )
 result               <- rbind(base_result,lm_parent_result,lm_result)
+result
