@@ -41,7 +41,10 @@ for(i in 1:(ncol(data_2) - 6)){
 # IVW
 
 merged_data <- merge(Exposure_result, Outcome_result, by = "SNP")
-filtered_data <- subset(merged_data, P_wald_o_e.x < 0.05 / (ncol - 6))
+
+bon_p_value <- 0.05 / (nrow(merged_data) - 6)
+
+filtered_data <- subset(merged_data, P_wald_o_e.x < bon_p_value)
 
 beta_exp <- as.numeric(filtered_data$Beta_o_e.x)  
 se_exp <- as.numeric(filtered_data$SE_o_e.x)      
