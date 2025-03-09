@@ -10,7 +10,7 @@ data_2 <- as.data.table(data_2)
 
 # Exposure part
 
-for(i in 1:10){
+for(i in 1:(ncol(data_1) - 6)){
   snp_name  <- names(data_1[,-(1:6)])
   data_sub  <- data_1[,c(1:6,(6+i)),with = F]
   trio_data <- process_family_data(data_sub, seed = 0)
@@ -25,7 +25,7 @@ for(i in 1:10){
 
 # Outcome part
 
-for(i in 1:10){
+for(i in 1:(ncol(data_2) - 6)){
   snp_name  <- names(data_2[,-(1:6)])
   data_sub  <- data_2[,c(1:6,(6+i)),with = F]
   trio_data <- process_family_data(data_sub, seed = 0)
@@ -41,7 +41,7 @@ for(i in 1:10){
 # IVW
 
 merged_data <- merge(Exposure_result, Outcome_result, by = "SNP")
-filtered_data <- subset(merged_data, P_wald_o_e.x < 0.005)
+filtered_data <- subset(merged_data, P_wald_o_e.x < 0.05 / (ncol - 6))
 
 beta_exp <- as.numeric(filtered_data$Beta_o_e.x)  
 se_exp <- as.numeric(filtered_data$SE_o_e.x)      
