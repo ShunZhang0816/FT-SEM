@@ -3,7 +3,7 @@ library(data.table)
 data <- read.table("Example_1.txt")
 data <- as.data.table(data)
 
-for(i in 1:(ncol(data_1) - 6)){
+for(i in 1:(ncol(data) - 6)){
   snp_name  <- names(data[,-(1:6)])
   data_sub  <- data[,c(1:6,(6+i)),with = F]
   trio_data <- process_family_data(data_sub, seed = 0)
