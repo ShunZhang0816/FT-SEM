@@ -2,7 +2,7 @@ Package: FTSEM
 Type: Package
 Title: FT-SEM
 Version: 4.4.0
-Author: Shun Zhang, Ji-yuan Zhou
+Author: Shun Zhang, Ji-Yuan Zhou
 Maintainer: Shun Zhang <3207042023@i.smu.edu.cn>, Ji-Yuan Zhou <zhoujy@smu.edu.cn>
 Description: A robust and powerful GWAS method for family trios supporting within-family Mendelian randomization analysis
 License: GPL-2
