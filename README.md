@@ -21,6 +21,7 @@ library(FTSEM)
 
 # Example
 One simple example to use the FT-SEM to perform GWAS can be found at /Example/GWAS_Example_1.R  
+Before running the R code in the Example folder, please ensure that the working directory is set to the Example folder.  
 Example_1 is in the standard format extracted using PLINK 1.9. By applying the --recodeA option, traditional PLINK file formats can be converted into this format.  
 For example,  
 ```
