@@ -35,7 +35,8 @@ Example_2 consists of two data files, Example_2_Exposure and Example_2_Outcome, 
 ## Expected output
 Example_1 and Example_2 are executed on a system powered by an AMD 7500F CPU and an RX 7900 GRE GPU, running the Windows 11 operating system. Upon running Example_1, you will receive a data.frame that includes point estimates, confidence intervals, and p-values of association effect sizes. Similarly, running Example_2 will also generate a data.frame containing point estimates, confidence intervals, and p-values of causal effect sizes.
 
-Example_1 output
+Example_1 output:  
+In this table, Beta_o_e, SE_o_e, CI_lower_o_e, CI_upper_o_e, and p_wald_o_e represent the point estimate, standard error, lower bound, upper bound of the confidence interval, and p-value, respectively, for the offspring effect. Similarly, Beta_f_e, SE_f_e, CI_lower_f_e, CI_upper_f_e, and p_wald_f_e represent the point estimate, standard error, lower bound, upper bound of the confidence interval, and p-value for the paternal effect. Lastly, Beta_m_e, SE_m_e, CI_lower_m_e, CI_upper_m_e, and p_wald_m_e correspond to the point estimate, standard error, lower bound, upper bound of the confidence interval, and p-value for the maternal effect.
 
 | SNP  | Method | Beta_o_e           | SE_o_e             | p_wald_o_e           | CI_lower_o_e       | CI_upper_o_e      | Beta_f_e           | SE_f_e             | p_wald_f_e        | CI_lower_f_e        | CI_upper_f_e      | Beta_m_e            | SE_m_e             | p_wald_m_e        | CI_lower_m_e       | CI_upper_m_e      |
 | ---- | ------ | ------------------ | ------------------ | -------------------- | ------------------ | ----------------- | ------------------ | ------------------ | ----------------- | ------------------- | ----------------- | ------------------- | ------------------ | ----------------- | ------------------ | ----------------- |
@@ -43,8 +44,8 @@ Example_1 output
 | SNP2 | FT-SEM | 0.0140173158674012 | 0.0643153076412046 | 0.827470557822518    | -0.11204068710936  | 0.140075318844162 | 0.104000057566962  | 0.0713433547406661 | 0.144912238916003 | -0.0358329177247435 | 0.243833032858668 | 0.0735158730036606  | 0.0737678440443646 | 0.318966344324958 | -0.071069101323294 | 0.218100847330615 |
 | .... |        |                    |                    |                      |                    |                   |                    |                    |                   |                     |                   |                     |                    |                   |                    |                   |
 
-Example_2 output
-
+Example_2 output:  
+In this table, Beta_IVW, SE_IVW, CI_Lower, CI_Upper, and P-Value represent the point estimate, standard error, lower bound, upper bound of the confidence interval, and p-value, respectively, for the causal effects.
 | Beta_IVW  | SE_IVW     | CI_Lower   | CI_Upper  | P_Value     |
 | --------- | ---------- | ---------- | --------- | ----------- |
 | 0.1149939 | 0.03701849 | 0.04243771 | 0.1875502 | 0.001893854 |
