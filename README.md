@@ -20,7 +20,7 @@ library(FTSEM)
 ```
 
 # Example
-One simple example to use the FT-SEM to perform GWAS can be found at /Example/Example_1.  
+One simple example to use the FT-SEM to perform GWAS can be found at /Example/GWAS_Example_1.R  
 Example_1 is in the standard format extracted using PLINK 1.9. By applying the --recodeA option, traditional PLINK file formats can be converted into this format.  
 For example,  
 ```
@@ -29,14 +29,14 @@ plink --bfile your_data_name --recodeA --out output_data_name
 After that, you will get a file with a .raw extension. You can directly import it into R for use or change its extension to .txt before importing it into R.  
 The first five columns of this file represent individual information: FID (Family ID), IID (Individual ID), PAT (Paternal ID), MAT (Maternal ID), and PHENOTYPE (Phenotypic value). The subsequent columns correspond to SNP genotypes, where each SNP is coded as 0, 1, or 2, indicating the number of minor alleles.  
   
-Another straightforward example demonstrating the use of FT-SEM to conduct GWAS separately for exposure and outcome datasets, followed by combining the summary results using IVW to estimate causal effects, can be found in ./Example/Example_2.  
+Another straightforward example demonstrating the use of FT-SEM to conduct GWAS separately for exposure and outcome datasets, followed by combining the summary results using IVW to estimate causal effects, can be found in ./Example/MR_Example_2.R.  
 Example_2 consists of two data files, Example_2_Exposure and Example_2_Outcome, both of which have the same format as Example_1.
 
 ## Expected output
 Example_1 and Example_2 are executed on a system powered by an AMD 7500F CPU and an RX 7900 GRE GPU, running the Windows 11 operating system. Upon running Example_1, you will receive a data.frame that includes point estimates, confidence intervals, and p-values of association effect sizes. Similarly, running Example_2 will also generate a data.frame containing point estimates, confidence intervals, and p-values of causal effect sizes.
 
 Example_1 output:  
-In this table, Beta_o_e, SE_o_e, CI_lower_o_e, CI_upper_o_e, and p_wald_o_e represent the point estimate, standard error, lower bound, upper bound of the confidence interval, and p-value, respectively, for the offspring effect. Similarly, Beta_f_e, SE_f_e, CI_lower_f_e, CI_upper_f_e, and p_wald_f_e represent the point estimate, standard error, lower bound, upper bound of the confidence interval, and p-value for the paternal effect. Lastly, Beta_m_e, SE_m_e, CI_lower_m_e, CI_upper_m_e, and p_wald_m_e correspond to the point estimate, standard error, lower bound, upper bound of the confidence interval, and p-value for the maternal effect.
+In this table, Beta_o_e, SE_o_e, CI_lower_o_e, CI_upper_o_e, and p_wald_o_e represent the point estimate, standard error, lower bound, upper bound of the confidence interval, and p-value for the offspring effect, respectively. Similarly, Beta_f_e, SE_f_e, CI_lower_f_e, CI_upper_f_e, and p_wald_f_e represent the point estimate, standard error, lower bound, upper bound of the confidence interval, and p-value for the paternal effect. Lastly, Beta_m_e, SE_m_e, CI_lower_m_e, CI_upper_m_e, and p_wald_m_e correspond to the point estimate, standard error, lower bound, upper bound of the confidence interval, and p-value for the maternal effect.
 
 | SNP  | Method | Beta_o_e           | SE_o_e             | p_wald_o_e           | CI_lower_o_e       | CI_upper_o_e      | Beta_f_e           | SE_f_e             | p_wald_f_e        | CI_lower_f_e        | CI_upper_f_e      | Beta_m_e            | SE_m_e             | p_wald_m_e        | CI_lower_m_e       | CI_upper_m_e      |
 | ---- | ------ | ------------------ | ------------------ | -------------------- | ------------------ | ----------------- | ------------------ | ------------------ | ----------------- | ------------------- | ----------------- | ------------------- | ------------------ | ----------------- | ------------------ | ----------------- |
@@ -45,11 +45,12 @@ In this table, Beta_o_e, SE_o_e, CI_lower_o_e, CI_upper_o_e, and p_wald_o_e repr
 | .... |        |                    |                    |                      |                    |                   |                    |                    |                   |                     |                   |                     |                    |                   |                    |                   |
 
 Example_2 output:  
-In this table, Beta_IVW, SE_IVW, CI_Lower, CI_Upper, and P-Value represent the point estimate, standard error, lower bound, upper bound of the confidence interval, and p-value, respectively, for the causal effects.
+In this table, Beta_IVW, SE_IVW, CI_Lower, CI_Upper, and P-Value represent the point estimate, standard error, lower bound, upper bound of the confidence interval, and p-value for the causal effects, respectively.
 | Beta_IVW  | SE_IVW     | CI_Lower   | CI_Upper  | P_Value     |
 | --------- | ---------- | ---------- | --------- | ----------- |
 | 0.1149939 | 0.03701849 | 0.04243771 | 0.1875502 | 0.001893854 |
 
+It is normal for some results to exhibit minor differences when running the analysis multiple times, as our model uses an iterative algorithm. 
 
 # Results reproduced
 All results for all methods used in the FT-SEM paper can be reproduced at ./Simulation and ./Empirical_Study. It is important to note that reproducing the empirical analysis requires obtaining publicly available data in advance. For details, please refer to the links provided in in the "Data availability" section of the article.
