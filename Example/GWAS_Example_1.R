@@ -1,7 +1,7 @@
 library(FTSEM)
 # install.packages("data.table")
 library(data.table)
-data <- read.table("Example_1.txt")
+data <- read.table("Example_1.txt",header = T)
 data <- as.data.table(data)
 
 for(i in 1:(ncol(data) - 6)){

@@ -2,10 +2,10 @@ library(FTSEM)
 library(data.table)
 
 
-data_1 <- read.table("./Example_2_Exposure.txt")
+data_1 <- read.table("./Example_2_Exposure.txt", header = T)
 data_1 <- as.data.table(data_1)
 
-data_2 <- read.table("./Example_2_Outcome.txt")
+data_2 <- read.table("./Example_2_Outcome.txt", header = T)
 data_2 <- as.data.table(data_2)
 
 # Exposure part

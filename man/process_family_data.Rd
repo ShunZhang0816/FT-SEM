@@ -2,15 +2,15 @@
 % Please edit documentation in R/Process_family_data.R
 \name{process_family_data}
 \alias{process_family_data}
-\title{The main function for family trios structural equation model (FT-SEM)}
+\title{The main function for the preliminary processing to obtain the required data frame for FT-SEM}
 \usage{
 process_family_data(data, seed = 123)
 }
 \arguments{
-\item{data}{A data.frame about genotype from plink1.9, containing FID,IID,PAT,MAT,SEX, phnotype and genotype (only 1 coloum)}
+\item{data}{A data frame about genotype from PLINK 1.9, containing FID, IID, PAT, MAT, SEX, phenotype and genotype (only 1 column)}
 
-\item{seed}{random seed for select offspring from a family with multiple offsprings}
+\item{seed}{Random seed for randomly selecting one offspring from a family with multiple offspring}
 }
 \description{
-A robust and powerful GWAS method for family trios
+Filtering the data to obtain the required data frame for FT-SEM
 }

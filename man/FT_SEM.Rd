@@ -8,6 +8,8 @@ FT_SEM(data_sub = NULL, snp_name = NA)
 }
 \arguments{
 \item{data_sub}{A data.frame object for FT-SEM contains six columns: the father's genotype, the mother's genotype, the offspring's genotype, the father's phenotype, the mother's phenotype, and the offspring's phenotype. These columns are named f_snp, m_snp, o_snp, Exposure_f, Exposure_m, and Exposure_o, respectively.}
+
+\item{snp_name}{The names of the SNP loci used for analysis (generally the column names from the 7th to the last column of the data before being processed by the process_family_data method).}
 }
 \description{
 A robust and powerful GWAS method for family trios
