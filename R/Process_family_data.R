@@ -1,7 +1,7 @@
-#' @title The main function for family trios structural equation model (FT-SEM)
-#' @description A robust and powerful GWAS method for family trios
-#' @param data A data.frame about genotype from plink1.9, containing FID,IID,PAT,MAT,SEX, phnotype and genotype (only 1 coloum) 
-#' @param seed random seed for select offspring from a family with multiple offsprings
+#' @title The main function for the preliminary processing to obtain the required data frame for FT-SEM
+#' @description Filtering the data to obtain the required data frame for FT-SEM
+#' @param data A data frame about genotype from PLINK 1.9, containing FID, IID, PAT, MAT, SEX, phenotype and genotype (only 1 column)
+#' @param seed Random seed for randomly selecting one offspring from a family with multiple offspring
 #' @import dplyr
 #' @export
 
