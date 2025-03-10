@@ -52,3 +52,6 @@ Example_2 output
 
 # Results reproduced
 All results for all methods used in the FT-SEM paper can be reproduced at ./Simulation and ./Empirical_Study. It is important to note that reproducing the empirical analysis requires obtaining publicly available data in advance. For details, please refer to the links provided in in the "Data availability" section of the article.
+
+# Reference
+Mc, N. et al. OpenMx 2.0: Extended Structural Equation and Statistical Modeling. Psychometrika 81, 535–549 (2016).
