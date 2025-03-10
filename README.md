@@ -1,16 +1,16 @@
 # FT-SEM
-The simulation and emprical study code of the paper “A robust and powerful GWAS method for family trios supporting within-family Mendelian randomization analysis”
+The simulation and empirical study code for the paper entitled “A robust and powerful GWAS method for family trios supporting within-family Mendelian randomization analysis”
 
 
 # Installation
-It is easy to install the development version of FTSEM package using the 'devtools' package. The typical install time on a "normal" desktop computer is less than one minute. This R package is currently running smoothly on version 4.4.0.
+It is easy to install the development version of FTSEM package using the 'devtools' package. The typical installation time on a "normal" desktop computer is less than one minute. This R package is currently running smoothly on version 4.4.0.
 ```
 # install.packages("devtools")
 library(devtools)
 install_github("ShunZhang0816/FT-SEM")
 ```
 # Usage
-There are two main functions in FTSEM package, one is FT_SEM for performing analysis based on family trios data with one offspring, another one is process_family_data to transform the data from PLINK 1.9 to what the FT_SEM function needs. You can find the instructions by '?FT_SEM' and '?process_family_data'.
+There are two main functions in FTSEM package, one is FT_SEM for performing analysis based on family trio data with one offspring, another one is process_family_data to transform the data from PLINK 1.9 to what the FT_SEM function needs. You can find the instructions by '?FT_SEM' and '?process_family_data'.
 ```
 library(FTSEM)
 
