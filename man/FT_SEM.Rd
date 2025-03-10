@@ -2,7 +2,7 @@
 % Please edit documentation in R/FT-SEM.R
 \name{FT_SEM}
 \alias{FT_SEM}
-\title{The main function for family trios structural equation model (FT-SEM)}
+\title{The main function for structural equation model based on family trios (FT-SEM)}
 \usage{
 FT_SEM(data_sub = NULL, snp_name = NA)
 }
