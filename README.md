@@ -29,11 +29,11 @@ plink --bfile your_data_name --recodeA --out output_data_name
 After that, you will get a file with a .raw extension. You can directly import it into R for use or change its extension to .txt before importing it into R.  
 The first five columns of this file represent individual information: FID (Family ID), IID (Individual ID), PAT (Paternal ID), MAT (Maternal ID), and PHENOTYPE (Phenotypic value). The subsequent columns correspond to SNP genotypes, where each SNP is coded as 0, 1, or 2, indicating the number of minor alleles.  
   
-Another straightforward example demonstrating the use of FT-SEM to conduct GWAS separately on exposure and outcome datasets, followed by combining the summary results using IVW to estimate causal effects, can be found in ./Example/Example_2.  
-Example_2 consists of two files, Example_2_Exposure and Example_2_Outcome, both of which follow the same format as Example_1.
+Another straightforward example demonstrating the use of FT-SEM to conduct GWAS separately for exposure and outcome datasets, followed by combining the summary results using IVW to estimate causal effects, can be found in ./Example/Example_2.  
+Example_2 consists of two data files, Example_2_Exposure and Example_2_Outcome, both of which have the same format as Example_1.
 
 ## Expected output
-Example_1 and Example_2 are executed on a system powered by an AMD 7500F CPU and an RX 7900 GRE GPU, running the Windows 11 operating system. Upon running Example_1, you will receive a data.frame that includes point estimates, confidence intervals, and p-values. Similarly, running Example_2 will also generate a data.frame containing point estimates, confidence intervals, and p-values.
+Example_1 and Example_2 are executed on a system powered by an AMD 7500F CPU and an RX 7900 GRE GPU, running the Windows 11 operating system. Upon running Example_1, you will receive a data.frame that includes point estimates, confidence intervals, and p-values of association effect sizes. Similarly, running Example_2 will also generate a data.frame containing point estimates, confidence intervals, and p-values of causal effect sizes.
 
 Example_1 output
 
@@ -51,4 +51,4 @@ Example_2 output
 
 
 # Results reproduced
-All results for all methods used in the FT-SEM paper can be reproduced at ./Simulation and ./Empirical_Study. It is important to note that reproducing the empirical analysis requires obtaining publicly available data in advance. For details, please refer to the links provided in the article.
+All results for all methods used in the FT-SEM paper can be reproduced at ./Simulation and ./Empirical_Study. It is important to note that reproducing the empirical analysis requires obtaining publicly available data in advance. For details, please refer to the links provided in in the "Data availability" section of the article.
