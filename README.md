@@ -3,7 +3,7 @@ The simulation and empirical study code for the paper entitled “A robust and p
 
 
 # Installation
-It is easy to install the development version of FTSEM package using the 'devtools' package. The typical installation time on a "normal" desktop computer is less than one minute. This R package is currently running smoothly on version 4.4.0.
+It is easy to install the development version of FTSEM package using the 'devtools' package, which uses the OpenMx Package [1]. The typical installation time on a "normal" desktop computer is less than one minute. This R package is currently running smoothly on version 4.4.0.
 ```
 # install.packages("devtools")
 library(devtools)
@@ -54,4 +54,4 @@ Example_2 output
 All results for all methods used in the FT-SEM paper can be reproduced at ./Simulation and ./Empirical_Study. It is important to note that reproducing the empirical analysis requires obtaining publicly available data in advance. For details, please refer to the links provided in in the "Data availability" section of the article.
 
 # Reference
-Mc, N. et al. OpenMx 2.0: Extended Structural Equation and Statistical Modeling. Psychometrika 81, 535–549 (2016).
+[1] Mc, N. et al. OpenMx 2.0: Extended Structural Equation and Statistical Modeling. Psychometrika 81, 535–549 (2016).
